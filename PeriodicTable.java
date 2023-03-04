@@ -6,10 +6,10 @@ import java.lang.Math.*;
 
 public class PeriodicTable {
   
-  PlanetaryModel planetaryModel = new PlanetaryModel(Element.valueOf("Hydrogen"), Const.FRAME_WIDTH/15, Const.FRAME_HEIGHT*2/3, 400); 
+  PlanetaryModel planetaryModel = new PlanetaryModel(Element.valueOf("Hydrogen"), Const.FRAME_WIDTH/15, Const.FRAME_HEIGHT*1/3, 400); 
+  Element current = Element.valueOf("Hydrogen");
   // Planetary Model: need to make button thing for each element that switches model (element rect already made here (line 27)(default is hydrogen))
   int fontSize = Const.ELEMENT_FONT_SIZE;
-  boolean escpressed;
   final int circleSize = Const.ELEMENT_SIZE;
   final int elementSpace = Const.ELEMENT_SPACE;
   final int XSpace = Const.X_SPACE;
@@ -24,7 +24,6 @@ public class PeriodicTable {
   Color blue = Const.BLUE;
   Color brown = Const.BROWN;
 
-  ArrayList<JButton> buttons = new ArrayList<>();
   ArrayList<Rectangle> tiles = new ArrayList<>();
   
 //------------------------------------------------------------------------------
@@ -76,47 +75,58 @@ public class PeriodicTable {
       g.drawString(elements[i].getAtomicNum()+"", XSpace + (group-1)*elementSpace + circleSize/3 - adjustX + formattingAtomicNumX, YSpace + (period-1)*elementSpace + circleSize/3 + formattingAtomicNumY);
       g.drawString(elements[i].getSymbol(), XSpace + (group-1)*elementSpace + circleSize/3 - adjustX2 + formattingSymbolX, YSpace + (period-1)*elementSpace + circleSize*3/4);
     }
-    // element legend
-    g.setColor(orange);
-    g.fillOval(XSpace + (elementSpace)*3, YSpace + (elementSpace/2)*0, circleSize/3, circleSize/3);
-    g.setColor(daniel);
-    g.fillOval(XSpace + (elementSpace)*3, YSpace + (elementSpace/2)*1, circleSize/3, circleSize/3);
-    g.setColor(purple);
-    g.fillOval(XSpace + (elementSpace)*3, YSpace + (elementSpace/2)*2, circleSize/3, circleSize/3);
-    g.setColor(blue);
-    g.fillOval(XSpace + (elementSpace)*3, YSpace + (elementSpace/2)*3, circleSize/3, circleSize/3);
-    g.setColor(Color.RED);
-    g.fillOval(XSpace + (elementSpace)*3, YSpace + (elementSpace/2)*4, circleSize/3, circleSize/3);
-    g.setColor(cyan);
-    g.fillOval(XSpace + (elementSpace)*3, YSpace + (elementSpace/2)*5, circleSize/3, circleSize/3);
     
+    g.setColor(orange);
+    g.fillOval(XSpace + (elementSpace)*2 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*0, circleSize/3, circleSize/3);
+    g.setColor(daniel);
+    g.fillOval(XSpace + (elementSpace)*2 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*1, circleSize/3, circleSize/3);
+    g.setColor(purple);
+    g.fillOval(XSpace + (elementSpace)*2 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*2, circleSize/3, circleSize/3);
+    g.setColor(blue);
+    g.fillOval(XSpace + (elementSpace)*6 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*0, circleSize/3, circleSize/3);
+    g.setColor(Color.RED);
+    g.fillOval(XSpace + (elementSpace)*6 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*1, circleSize/3, circleSize/3);
+    g.setColor(cyan);
+    g.fillOval(XSpace + (elementSpace)*6 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*2, circleSize/3, circleSize/3);
+
     g.setColor(Color.BLACK);
-    g.drawString("Alkali Metal", XSpace + (elementSpace)*3 + circleSize/2, YSpace + (elementSpace/2)*0 + circleSize/4);
-    g.drawString("Alkaline Earth Metal", XSpace + (elementSpace)*3 + circleSize/2, YSpace + (elementSpace/2)*1 + circleSize/4);
-    g.drawString("Noble Gas", XSpace + (elementSpace)*3 + circleSize/2, YSpace + (elementSpace/2)*2 + circleSize/4);
-    g.drawString("Post-Transition Metal", XSpace + (elementSpace)*3 + circleSize/2, YSpace + (elementSpace/2)*3 + circleSize/4);
-    g.drawString("Transition Metal", XSpace + (elementSpace)*3 + circleSize/2, YSpace + (elementSpace/2)*4 + circleSize/4);
-    g.drawString("Metalloid", XSpace + (elementSpace)*3 + circleSize/2, YSpace + (elementSpace/2)*5 + circleSize/4);
+    g.drawString("Alkali Metal", XSpace + (elementSpace)*2 + 5 + circleSize/2, Const.FRAME_HEIGHT - 155 + (elementSpace/2)*0 + circleSize/4);
+    g.drawString("Alkaline Earth Metal", XSpace + (elementSpace)*2 + 5 + circleSize/2, Const.FRAME_HEIGHT - 155 + (elementSpace/2)*1 + circleSize/4);
+    g.drawString("Noble Gas", XSpace + (elementSpace)*2 + 5 + circleSize/2, Const.FRAME_HEIGHT - 155 + (elementSpace/2)*2 + circleSize/4);
+    g.drawString("Post-Transition Metal", XSpace + (elementSpace)*6 + 5 + circleSize/2, Const.FRAME_HEIGHT - 155 + (elementSpace/2)*0 + circleSize/4);
+    g.drawString("Transition Metal", XSpace + (elementSpace)*6 + 5 + circleSize/2, Const.FRAME_HEIGHT - 155 + (elementSpace/2)*1 + circleSize/4);
+    g.drawString("Metalloid", XSpace + (elementSpace)*6 + 5 + circleSize/2, Const.FRAME_HEIGHT - 155 + (elementSpace/2)*2 + circleSize/4);
 
 
     g.setColor(lime);
-    g.fillOval(XSpace + (elementSpace)*7, YSpace + (elementSpace/2)*0, circleSize/3, circleSize/3);
+    g.fillOval(XSpace + (elementSpace)*10 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*0, circleSize/3, circleSize/3);
     g.setColor(Color.GREEN);
-    g.fillOval(XSpace + (elementSpace)*7, YSpace + (elementSpace/2)*1, circleSize/3, circleSize/3);
+    g.fillOval(XSpace + (elementSpace)*10 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*1, circleSize/3, circleSize/3);
     g.setColor(brown);
-    g.fillOval(XSpace + (elementSpace)*7, YSpace + (elementSpace/2)*2, circleSize/3, circleSize/3);
+    g.fillOval(XSpace + (elementSpace)*10 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*2, circleSize/3, circleSize/3);
     g.setColor(pink);
-    g.fillOval(XSpace + (elementSpace)*7, YSpace + (elementSpace/2)*3, circleSize/3, circleSize/3);
+    g.fillOval(XSpace + (elementSpace)*14 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*0, circleSize/3, circleSize/3);
     g.setColor(Color.GRAY);
-    g.fillOval(XSpace + (elementSpace)*7, YSpace + (elementSpace/2)*4, circleSize/3, circleSize/3);
+    g.fillOval(XSpace + (elementSpace)*14 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*1, circleSize/3, circleSize/3);
     
     g.setColor(Color.BLACK);
-    g.drawString("Reactive Non-Metal", XSpace + (elementSpace)*7 + circleSize/2, YSpace + (elementSpace/2)*0 + circleSize/4);
-    g.drawString("Halogen", XSpace + (elementSpace)*7 + circleSize/2, YSpace + (elementSpace/2)*1 + circleSize/4);
-    g.drawString("Lanthanide", XSpace + (elementSpace)*7 + circleSize/2, YSpace + (elementSpace/2)*2 + circleSize/4);
-    g.drawString("Actinide", XSpace + (elementSpace)*7 + circleSize/2, YSpace + (elementSpace/2)*3 + circleSize/4);
-    g.drawString("Unknown", XSpace + (elementSpace)*7 + circleSize/2, YSpace + (elementSpace/2)*4 + circleSize/4);
+    g.drawString("Reactive Non-Metal", XSpace + (elementSpace)*10 + 5 + circleSize/2, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*0 + circleSize/4);
+    g.drawString("Halogen", XSpace + (elementSpace)*10 + 5 + circleSize/2, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*1 + circleSize/4);
+    g.drawString("Lanthanide", XSpace + (elementSpace)*10 + 5 + circleSize/2, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*2 + circleSize/4);
+    g.drawString("Actinide", XSpace + (elementSpace)*14 + 5 + circleSize/2, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*0 + circleSize/4);
+    g.drawString("Unknown", XSpace + (elementSpace)*14 + 5 + circleSize/2, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*1 + circleSize/4);
     // planetry model
     planetaryModel.draw(g);
+  }
+  public void switchElement(Mouse.Click click){
+    int i = 0;
+    for (Rectangle elementTile: this.tiles) {
+      if (elementTile.contains(click)) {
+          current = Element.values()[i];
+          System.out.println(current.toString());
+          break;
+      }
+      i++;
+  }
   }
 }

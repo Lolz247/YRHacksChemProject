@@ -38,6 +38,7 @@ public class TableState extends State{
                 break;
             }
         }
+        table.switchElement(click);
     }
     public void draw(Graphics g) {
         super.draw(g);
