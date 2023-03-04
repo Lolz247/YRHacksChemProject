@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.image.*;
 import javax.imageio.*;
 
+// p table screen
+
 public class TableState extends State{
     StateMachine stateMachine;
     PeriodicTable table;

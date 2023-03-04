@@ -1,6 +1,8 @@
 import java.awt.*;
 import javax.swing.*;
 
+// central class that runs the program
+
 public class Chemistry {
     JFrame window;
     ChemPanel chemPanel;

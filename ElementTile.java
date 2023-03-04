@@ -91,6 +91,9 @@ public class ElementTile {
 
         g.fillRect(x, y, size, size*5/4);
         g.setColor(Color.BLACK);
+        if (type.equals("Transition Metal")) {
+            g.setColor(Color.WHITE);
+        }
         g.setFont(FontLoader.getFont(size/4));
         g.drawString(symbol, x+size/12, y+size*2/3);
         g.drawString(atomicNum+"", x+size/12, y+size/5);

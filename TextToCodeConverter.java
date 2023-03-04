@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 
+// refer to class name (text to code converter)
+
 public class TextToCodeConverter {
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new FileReader("ElementList.txt"));

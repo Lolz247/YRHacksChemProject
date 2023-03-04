@@ -1,3 +1,5 @@
+// enumerated class for element constants
+
 public enum Element {
     Hydrogen("1", "H", "1.007", "0", "1", "1", "1", "1", "gas", "no", "yes", "Nonmetal", "0.79", "2.2", "13.5984", "8.99E-05", "14.175", "20.28", "3", "Cavendish", "1766", "14.304", "1", "1"),
     Helium("2", "He", "4.002", "2", "2", "2", "1", "18", "gas", "no", "yes", "Noble Gas", "0.49", "no", "24.5874", "1.79E-04", "no", "4.22", "5", "Janssen", "1868", "5.193", "1", "2"),
