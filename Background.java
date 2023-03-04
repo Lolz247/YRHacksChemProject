@@ -10,9 +10,9 @@ public class Background{
     private BufferedImage bgPic;
   
 //------------------------------------------------------------------------------     
-    Background(String picName){
-        this.x = 0;
-        this.y = 0;
+    Background(String picName, int x, int y){
+        this.x = x;
+        this.y = y;
         try {                
             this.bgPic = ImageIO.read(new File(picName));
         } catch (IOException ex){}

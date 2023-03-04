@@ -10,8 +10,8 @@ import javax.swing.*;
 public class CreditsState extends State{
     StateMachine stateMachine;
     Font textfont = new Font("Arial", 1, 40);
-    Background creds = new Background("assets/graph.png");
-    Background bg1 = new Background("assets/bg1.png");
+    Background creds = new Background("assets/graph.png",500,40);
+    Background bg1 = new Background("assets/bg1.png",0,0);
     CreditsState(Keyboard keyboard, Mouse mouse, StateMachine stateMachine) {
         super(keyboard, mouse);
         this.stateMachine = stateMachine;

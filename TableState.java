@@ -9,7 +9,7 @@ import javax.imageio.*;
 public class TableState extends State{
     StateMachine stateMachine;
     PeriodicTable table;
-    Background bg1 = new Background("assets/ptable.png");
+    Background bg1 = new Background("assets/ptable.png",0,0);
     private int tableType;
     TableState(Keyboard keyboard, Mouse mouse, StateMachine stateMachine) {
         super(keyboard, mouse);

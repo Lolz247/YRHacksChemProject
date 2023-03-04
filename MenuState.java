@@ -8,6 +8,7 @@ import javax.imageio.*;
 
 public class MenuState extends State{
     StateMachine stateMachine;
+    Background chemtech = new Background("assets/chemtech.png", 770, 90);
     MenuState(Keyboard keyboard, Mouse mouse, StateMachine stateMachine) {
         super(keyboard, mouse);
         this.stateMachine = stateMachine;
@@ -60,6 +61,7 @@ public class MenuState extends State{
         }
     }
     public void draw(Graphics g) {
+        chemtech.draw(g);
         super.draw(g);
     }
     private class TableButton extends MenuButton {
