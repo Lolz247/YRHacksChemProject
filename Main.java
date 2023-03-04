@@ -1,4 +1,9 @@
-// main java file
+// main java file that runs jpanel and jframe
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
 
 public class Main {
   JFrame gameWindow;
@@ -46,7 +51,7 @@ public class Main {
     while (true) {
         gameWindow.repaint();
         try {Thread.sleep(16);} catch(Exception e){}
-        for (Element element:Element.values()){ //what is this
+        for (Element element: Element.values()){ //what is this
 
         }
     }
@@ -129,7 +134,7 @@ public class Main {
 //------------------------------------------------------------------------------
     public static void main(String[] args){
         System.out.println("we love chemistry!!!"); //i hate daniel 
-        PeriodicTable thing = new PeriodicTable();
+        Main thing = new Main();
         thing.run();
     }
 }
