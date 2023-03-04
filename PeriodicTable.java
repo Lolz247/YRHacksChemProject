@@ -6,7 +6,7 @@ import java.lang.Math.*;
 
 public class PeriodicTable {
   
-  PlanetaryModel planetaryModel = new PlanetaryModel(Element.valueOf("Zinc"), Const.FRAME_WIDTH/15, Const.FRAME_HEIGHT*2/3, 400);
+  PlanetaryModel planetaryModel = new PlanetaryModel(Element.valueOf("Hydrogen"), Const.FRAME_WIDTH/15, Const.FRAME_HEIGHT*2/3, 400);
   int fontSize = Const.ELEMENT_FONT_SIZE;
   boolean escpressed;
   final int circleSize = Const.ELEMENT_SIZE;
