@@ -18,7 +18,7 @@ public class MenuState extends State{
         tableButton.setBounds((int)200, 200, (int)400, (int)150);
         tableButton.setText("Periodic Table");
         tableButton.setColor(Color.BLACK);
-        tableButton.setHoverColor(Color.GRAY);
+        tableButton.setHoverColor(new Color(75,75,75)); //nicer gray than Color.GRAY
         tableButton.setTextColor(Color.WHITE);
         tableButton.setFontSize(30);
         this.buttons.put("table", tableButton);
@@ -26,8 +26,8 @@ public class MenuState extends State{
         CompoundButton compoundButton = new CompoundButton(this.mouse);
         compoundButton.setBounds((int)200, (int)450, (int)400, (int)150);
         compoundButton.setText("Compounds");
-        compoundButton.setColor(Color.RED);
-        compoundButton.setHoverColor(Color.PINK);
+        compoundButton.setColor(new Color(230,30,30)); //nicer red than Color.RED
+        compoundButton.setHoverColor(new Color(240,75,75));
         compoundButton.setTextColor(Color.BLACK);
         compoundButton.setFontSize(20);
         this.buttons.put("red", compoundButton);
@@ -35,8 +35,8 @@ public class MenuState extends State{
         CreditButton creditButton = new CreditButton(this.mouse);
         creditButton.setBounds((int)200, (int)700, (int)400, (int)150);
         creditButton.setText("Credits");
-        creditButton.setColor(Color.BLUE);
-        creditButton.setHoverColor(Color.CYAN);
+        creditButton.setColor(new Color(30,70,200)); //nicer blue than Color.BLUE
+        creditButton.setHoverColor(new Color(75,120,235));
         creditButton.setTextColor(Color.BLACK);
         creditButton.setFontSize(20);
         this.buttons.put("blue", creditButton);
