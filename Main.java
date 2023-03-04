@@ -51,7 +51,7 @@ public class Main {
     while (true) {
         gameWindow.repaint();
         try {Thread.sleep(16);} catch(Exception e){}
-        for (Element element:Element.values()){ //what is this
+        for (Element element: Element.values()){ //what is this
 
         }
     }
