@@ -135,6 +135,9 @@ public class ElementTile {
         g.fillRect(x, y, size, size*5/4);
         g.setFont(FontLoader.getFont(size/20));
         g.setColor(Color.BLACK);
+        if (type.equals("Transition Metal")) {
+            g.setColor(Color.WHITE);
+        }
         g.setFont(FontLoader.getFont(size/12));
         g.drawString(symbol, x+size/12, y+size/8);
         g.setFont(FontLoader.getFont(size/16));
