@@ -11,10 +11,11 @@ public class Main {
   MyMouseListener mouseListener;
   
   boolean escpressed;
+  final int CIRCLESIZE = 60;
   
 //------------------------------------------------------------------------------
   Main(){
-    gameWindow = new JFrame("Pocket Chem (Lite)");
+    gameWindow = new JFrame("I HATE DANIEL");
     gameWindow.setSize(1600,900);
     gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     gameWindow.setResizable(false);
@@ -81,6 +82,10 @@ public class Main {
           super.paintComponent(g); //required
           g.setColor(Color.GRAY);
           g.fillRect(300,300,1000,5);
+          
+          for (int j = 0; j < 10; j++){//i hate daniel
+            g.fillOval(50, 80 * j + 30, CIRCLESIZE, CIRCLESIZE);
+          }
         }
     }    
 //------------------------------------------------------------------------------
