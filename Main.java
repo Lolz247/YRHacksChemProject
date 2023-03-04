@@ -3,6 +3,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.*;
 
 public class Main {
   JFrame gameWindow;
@@ -14,15 +15,18 @@ public class Main {
   final int CIRCLESIZE = 60;
   final int SPACING = 80;
   Color PURPLE = new Color(159, 43, 104);
+  ArrayList<JButton> buttons = new ArrayList<>();
   
 //------------------------------------------------------------------------------
   Main(){
     gameWindow = new JFrame("I HATE DANIEL");
+
     gameWindow.setSize(1600,900);
     gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     gameWindow.setResizable(false);
     
     gamePanel = new GamePanel();
+    gamePanel.setLayout(null);
     gameWindow.add(gamePanel); 
     
     keyListener = new MyKeyListener();
@@ -32,9 +36,11 @@ public class Main {
     gamePanel.addMouseListener(mouseListener);
     
     JButton testbtn = new JButton("test123(4)");
+    testbtn.setBounds(50,100,95,30);
     testbtn.setBackground(Color.PINK);
     testbtn.setForeground(Color.GREEN);
     gamePanel.add(testbtn);
+    buttons.add(testbtn);
     
     gameWindow.setVisible(true);    
   }
@@ -45,6 +51,9 @@ public class Main {
     while (true) {
         gameWindow.repaint();
         try {Thread.sleep(16);} catch(Exception e){}
+        for (Element element:Element.values()){ //what is this
+
+        }
     }
   }
 //------------------------------------------------------------------------------  
@@ -110,11 +119,6 @@ public class Main {
             for (int j5 = 2; j5 < 5; j5++){
                 g.fillOval(50 + g5*SPACING, SPACING + 30 + j5*SPACING, CIRCLESIZE, CIRCLESIZE);
             }
-          }
-          
-
-          for (Element element:Element.values()){ //what is this
-
           }
 
           g.setColor(Color.GRAY); //Lanthanoids
