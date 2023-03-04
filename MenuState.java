@@ -29,7 +29,7 @@ public class MenuState extends State{
         compoundButton.setColor(new Color(230,30,30)); //nicer red than Color.RED
         compoundButton.setHoverColor(new Color(240,75,75));
         compoundButton.setTextColor(Color.BLACK);
-        compoundButton.setFontSize(20);
+        compoundButton.setFontSize(30);
         this.buttons.put("red", compoundButton);
 
         CreditButton creditButton = new CreditButton(this.mouse);
@@ -38,7 +38,7 @@ public class MenuState extends State{
         creditButton.setColor(new Color(30,70,200)); //nicer blue than Color.BLUE
         creditButton.setHoverColor(new Color(75,120,235));
         creditButton.setTextColor(Color.BLACK);
-        creditButton.setFontSize(20);
+        creditButton.setFontSize(30);
         this.buttons.put("blue", creditButton);
 
         tableButton.setActive(true);

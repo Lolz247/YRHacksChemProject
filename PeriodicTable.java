@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
+import java.lang.Math.*;
 
 public class PeriodicTable {
   
@@ -67,8 +68,11 @@ public class PeriodicTable {
       int adjustX2 = 0;
       adjustX = ((elements[i].getAtomicNum()+"").length()-1)*fontSize/4;
       adjustX2 = ((elements[i].getSymbol()+"").length()-1)*fontSize/3;
-      g.drawString(elements[i].getAtomicNum()+"", XSpace + (group-1)*elementSpace + circleSize/3 - adjustX, YSpace + (period-1)*elementSpace + circleSize/3);
-      g.drawString(elements[i].getSymbol(), XSpace + (group-1)*elementSpace + circleSize/3 - adjustX2, YSpace + (period-1)*elementSpace + circleSize*3/4);
+      int formattingAtomicNumX = (int)Math.pow(2,(3-Integer.toString(elements[i].getAtomicNum()).length()));
+      int formattingAtomicNumY = 4;
+      int formattingSymbolX = 4;
+      g.drawString(elements[i].getAtomicNum()+"", XSpace + (group-1)*elementSpace + circleSize/3 - adjustX + formattingAtomicNumX, YSpace + (period-1)*elementSpace + circleSize/3 + formattingAtomicNumY);
+      g.drawString(elements[i].getSymbol(), XSpace + (group-1)*elementSpace + circleSize/3 - adjustX2 + formattingSymbolX, YSpace + (period-1)*elementSpace + circleSize*3/4);
     }
   }
 //------------------------------------------------------------------------------

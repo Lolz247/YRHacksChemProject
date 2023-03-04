@@ -15,14 +15,15 @@ public class CompoundState extends State{
         super.setup();
 
         BackButton menuButton = new BackButton(this.mouse);
-        menuButton.setBounds((int)200, 200, (int)400, (int)150);
-        menuButton.setText("Periodic Table");
+        menuButton.setBounds((int)30, 10, (int)100, (int)50);
+        menuButton.setText("Main Menu");
         menuButton.setColor(Color.BLACK);
         menuButton.setHoverColor(Color.GRAY);
         menuButton.setTextColor(Color.WHITE);
-        menuButton.setFontSize(30);
+        menuButton.setFontSize(15);
         this.buttons.put("menu", menuButton);
 
+        menuButton.setActive(true);
     }
     public void type(char key) {
         /*if (this.buttons.get("name").isActive()) {
@@ -51,7 +52,7 @@ public class CompoundState extends State{
             super.draw(g);
         }
         public boolean run() {
-            stateMachine.changeState(1);
+            stateMachine.changeState(0);
             return true;
         }
     }
