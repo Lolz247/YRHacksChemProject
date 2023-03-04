@@ -6,6 +6,7 @@ public class TableState extends State{
     StateMachine stateMachine;
     PeriodicTable table;
     Background bg1 = new Background("assets/ptable.png",0,0);
+    Background bg2 = new Background("assets/123.png", 300, 100);
     Color basec = new Color(40,40,40);
     Color basec2 = new Color(75,75,75);
     private int tableType;
@@ -78,6 +79,7 @@ public class TableState extends State{
     }
     public void draw(Graphics g) {
         bg1.draw(g);
+        bg2.draw(g);
         super.draw(g);
         table.draw(g);
     }
