@@ -34,7 +34,7 @@ public class TableState extends State{
         ElementButton elementButton = new ElementButton(this.mouse);
         elementButton.setBounds((int)300, 225, (int)200, (int)100);
         elementButton.setText("Elements");
-        elementButton.setColor(basec);
+        elementButton.setColor(new Color(186,186,186));
         elementButton.setHoverColor(basec2);
         elementButton.setTextColor(Color.WHITE);
         elementButton.setFontSize(25);
@@ -45,7 +45,7 @@ public class TableState extends State{
         IonButton ionButton = new IonButton(this.mouse);
         ionButton.setBounds((int)550, 225, (int)200, (int)100);
         ionButton.setText("Ions");
-        ionButton.setColor(basec);
+        ionButton.setColor(new Color(186,186,186));
         ionButton.setHoverColor(basec2);
         ionButton.setTextColor(Color.WHITE);
         ionButton.setFontSize(25);
@@ -56,7 +56,7 @@ public class TableState extends State{
         ConfigButton configButton = new ConfigButton(this.mouse);
         configButton.setBounds((int)800, 225, (int)200, (int)100);
         configButton.setText("Electron configuration");
-        configButton.setColor(basec);
+        configButton.setColor(new Color(186,186,186));
         configButton.setHoverColor(basec2);
         configButton.setTextColor(Color.WHITE);
         configButton.setFontSize(15);
