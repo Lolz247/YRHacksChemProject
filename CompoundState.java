@@ -29,9 +29,7 @@ public class CompoundState extends State{
         menuButton.setActive(true);
     }
     public void type(char key) {
-        /*if (this.buttons.get("name").isActive()) {
-            ((NameButton)this.buttons.get("name")).type(key);
-        }*/
+        compCalc.type(key);
     }
     public void click(Mouse.Click click) {
         for (MenuButton button: this.buttons.values()) {

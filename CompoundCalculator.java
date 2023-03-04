@@ -25,42 +25,25 @@ public class CompoundCalculator {
     }
 
     public void exitTextBox(Mouse.Click click){
-        if(!this.textBox.contains(click)){
+        if(!this.textBox.contains(click) || (this.textBox.contains(click) && this.typing)){
             this.typing = false;
         }
     }
 
     public void type(char key){
-        int keyCode = key;
-        if(keyCode != 8){
-            text+=key;
-        } else if(text.length() > 0) {
-            text = text.substring(0, text.length()-1);
+        if(typing){
+            if(key != '\b' && text.length() < 16){
+                text+=key;
+            } else if(text.length() > 0 && key == '\b') {
+                text = text.substring(0, text.length()-1);
+            }
         }
-        System.out.println("cock");
     }
-
-    // public class NameKeyListener implements KeyListener {
-    //     public void keyPressed(KeyEvent event) {
-    //         int key = event.getKeyCode();
-    //         String newChar = Character.toString((char)key);
-    //         if (typing){
-    //             String name = text;
-    //             if (name.length() <= 25 && key != 8){ //8 is backspace, 32 is space, no spaces in name to not mess up networking
-    //                 text = name + newChar;
-    //             }
-    //             else if (key == 8 && text.length() > 0){
-    //                 text = text.substring(0, (text.length() - 1));
-    //             }
-    //         }
-    //     }
-    //     public void keyReleased(KeyEvent event) {}
-    //     public void keyTyped(KeyEvent event) {}
-    // }
 
     public void draw(Graphics g){
         g.setColor(Color.BLACK);
+        g.setFont(FontLoader.getFont(fontSize + 7));
         g.drawRect(textBox.x, textBox.y, textBox.width, textBox.height);
-        g.drawString(text, Const.FRAME_WIDTH/2 - textBoxSize/2, fontSize);
+        g.drawString(text, textBox.x + 4, textBox.y + 2 * textBox.height / 3);
     }
 }
