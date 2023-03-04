@@ -51,8 +51,8 @@ public class PlanetaryModel {
         g.setColor(Color.BLACK);
         g.drawOval(x + size*3/8, y + size*3/8, size/4, size/4);
         g.setFont(FontLoader.getFont(size/10));
-        int adjustXP = ((protonNum+"").length()-1) * size/20;
-        int adjustXN = ((neutronNum+"").length()-1) * size/20;
+        int adjustXP = ((protonNum+"").length()-1) * size/40;
+        int adjustXN = ((neutronNum+"").length()-1) * size/40;
         g.drawString(protonNum + "P", x + size*7/16 - adjustXP, y + size*8/16);
         g.drawString(neutronNum + "N", x + size*7/16 - adjustXN, y + size*9/16);
         // insert protons and neutrons

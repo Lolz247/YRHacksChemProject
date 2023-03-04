@@ -5,9 +5,9 @@ import java.util.*;
 import java.lang.Math.*;
 
 public class PeriodicTable {
-  
-  PlanetaryModel planetaryModel = new PlanetaryModel(Element.valueOf("Hydrogen"), Const.FRAME_WIDTH/15, Const.FRAME_HEIGHT*1/3, 400); 
   Element current = Element.valueOf("Hydrogen");
+  ElementTile tile = new ElementTile(current, Const.FRAME_WIDTH*4/5, Const.FRAME_HEIGHT/8, 350);
+  PlanetaryModel planetaryModel = new PlanetaryModel(current, Const.FRAME_WIDTH*4/5, Const.FRAME_HEIGHT*3/5, 300); 
   // Planetary Model: need to make button thing for each element that switches model (element rect already made here (line 27)(default is hydrogen))
   int fontSize = Const.ELEMENT_FONT_SIZE;
   final int circleSize = Const.ELEMENT_SIZE;
@@ -117,16 +117,18 @@ public class PeriodicTable {
     g.drawString("Unknown", XSpace + (elementSpace)*14 + 5 + circleSize/2, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*1 + circleSize/4);
     // planetry model
     planetaryModel.draw(g);
+    tile.draw(g);
   }
   public void switchElement(Mouse.Click click){
     int i = 0;
     for (Rectangle elementTile: this.tiles) {
       if (elementTile.contains(click)) {
-          current = Element.values()[i];
-          System.out.println(current.toString());
-          break;
+        current = Element.values()[i];
+        tile = new ElementTile(current, Const.FRAME_WIDTH*4/5, Const.FRAME_HEIGHT/8, 350);
+        planetaryModel = new PlanetaryModel(current, Const.FRAME_WIDTH*4/5, Const.FRAME_HEIGHT*3/5, 300);
+        break;
       }
       i++;
-  }
+    }
   }
 }
