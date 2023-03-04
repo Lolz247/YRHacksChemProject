@@ -25,6 +25,7 @@ public class ElementTile {
     Color cyan = Const.CYAN;
     Color blue = Const.BLUE;
     Color brown = Const.BROWN;
+    Color red = Const.RED;
 
     ElementTile(Element element, int x, int y, int size){ // Square element tile to be implemented into periodic table
         this.symbol = element.getSymbol();
@@ -92,7 +93,7 @@ public class ElementTile {
             case "Alkaline Earth Metal": g.setColor(daniel); break;
             case "Noble Gas": g.setColor(purple); break;
             case "Metal": g.setColor(blue); break;
-            case "Transition Metal": g.setColor(Color.RED); break;
+            case "Transition Metal": g.setColor(red); break;
             case "Metalloid": g.setColor(cyan); break;
             case "Nonmetal": g.setColor(lime); break;
             case "Halogen": g.setColor(Color.GREEN); break;
@@ -103,9 +104,9 @@ public class ElementTile {
 
         g.fillRect(x, y, size, size*5/4);
         g.setColor(Color.BLACK);
-        if (type.equals("Transition Metal")) {
-            g.setColor(Color.WHITE);
-        }
+        // if (type.equals("Transition Metal")) {
+        //     g.setColor(Color.WHITE);
+        // }
         g.setFont(FontLoader.getFont(size/4));
         g.drawString(symbol, x+size/12, y+size*2/3);
         g.drawString(atomicNum+"", x+size/12, y+size/5);

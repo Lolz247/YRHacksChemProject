@@ -87,7 +87,7 @@ public class PeriodicTable {
     g.fillOval(XSpace + (elementSpace)*2 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*2, circleSize/3, circleSize/3);
     g.setColor(blue);
     g.fillOval(XSpace + (elementSpace)*6 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*0, circleSize/3, circleSize/3);
-    g.setColor(Color.RED);
+    g.setColor(red);
     g.fillOval(XSpace + (elementSpace)*6 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*1, circleSize/3, circleSize/3);
     g.setColor(cyan);
     g.fillOval(XSpace + (elementSpace)*6 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*2, circleSize/3, circleSize/3);
