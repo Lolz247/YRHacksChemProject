@@ -64,6 +64,9 @@ public class PeriodicTable {
       g.fillOval(XSpace + (group-1)*elementSpace, YSpace + (period-1)*elementSpace, circleSize, circleSize);
       g.setFont(FontLoader.getFont(fontSize));
       g.setColor(Color.BLACK);
+      if (elements[i].getType().equals("Transition Metal")) {
+        g.setColor(Color.WHITE);
+      }
       int adjustX = 0;
       int adjustX2 = 0;
       adjustX = ((elements[i].getAtomicNum()+"").length()-1)*fontSize/4;
