@@ -107,16 +107,16 @@ public enum Element {
     Seaborgium("106", "Sg", "266", "160", "106", "106", "7", "6", "artificial", "yes", "no", "Transition Metal", "no", "no", "no", "3.50E+01", "no", "no", "no", "Ghiorso et al.", "1974", "no", "7", "no"),
     Bohrium("107", "Bh", "264", "157", "107", "107", "7", "7", "artificial", "yes", "no", "Transition Metal", "no", "no", "no", "3.70E+01", "no", "no", "no", "Armbruster and Monzenberg", "1981", "no", "7", "no"),
     Hassium("108", "Hs", "267", "159", "108", "108", "7", "8", "artificial", "yes", "no", "Transition Metal", "no", "no", "no", "4.10E+01", "no", "no", "no", "Armbruster and Monzenberg", "1983", "no", "7", "no"),
-    Meitnerium("109", "Mt", "268", "159", "109", "109", "7", "9", "artificial", "yes", "no", "Transactinide", "no", "no", "no", "3.50E+01", "no", "no", "no", "GSI, Darmstadt, West Germany", "1982", "no", "7", "no"),
-    Darmstadtium("110", "Ds", "271", "161", "110", "110", "7", "10", "artificial", "yes", "no", "Transactinide", "no", "no", "no", "no", "no", "no", "no", "no", "1994", "no", "7", "no"),
-    Roentgenium("111", "Rg", "272", "161", "111", "111", "7", "11", "artificial", "yes", "no", "Transactinide", "no", "no", "no", "no", "no", "no", "no", "no", "1994", "no", "7", "no"),
-    Copernicium("112", "Cn", "285", "173", "112", "112", "7", "12", "artificial", "yes", "no", "Transactinide", "no", "no", "no", "no", "no", "no", "no", "no", "1996", "no", "7", "no"),
-    Nihonium("113", "Nh", "284", "171", "113", "113", "7", "13", "artificial", "yes", "no", "Transactinide", "no", "no", "no", "no", "no", "no", "no", "no", "2004", "no", "7", "3"),
-    Flerovium("114", "Fl", "289", "175", "114", "114", "7", "14", "artificial", "yes", "no", "Transactinide", "no", "no", "no", "no", "no", "no", "no", "no", "1999", "no", "7", "4"),  
-    Moscovium("115", "Mc", "288", "173", "115", "115", "7", "15", "artificial", "yes", "no", "Transactinide", "no", "no", "no", "no", "no", "no", "no", "no", "2010", "no", "7", "5"),
-    Livermorium("116", "Lv", "292", "176", "116", "116", "7", "16", "artificial", "yes", "no", "Transactinide", "no", "no", "no", "no", "no", "no", "no", "no", "2000", "no", "7", "6"),
-    Tennessine("117", "Ts", "295", "178", "117", "117", "7", "17", "artificial", "yes", "no", "Transactinide", "no", "no", "no", "no", "no", "no", "no", "no", "2010", "no", "7", "7"),
-    Oganesson("118", "Og", "294", "176", "118", "118", "7", "18", "artificial", "yes", "no", "Noble Gas", "no", "no", "no", "no", "no", "no", "no", "no", "2006", "no", "7", "8");
+    Meitnerium("109", "Mt", "268", "159", "109", "109", "7", "9", "artificial", "yes", "no", "Unknown", "no", "no", "no", "3.50E+01", "no", "no", "no", "GSI, Darmstadt, West Germany", "1982", "no", "7", "no"),
+    Darmstadtium("110", "Ds", "271", "161", "110", "110", "7", "10", "artificial", "yes", "no", "Unknown", "no", "no", "no", "no", "no", "no", "no", "no", "1994", "no", "7", "no"),
+    Roentgenium("111", "Rg", "272", "161", "111", "111", "7", "11", "artificial", "yes", "no", "Unknown", "no", "no", "no", "no", "no", "no", "no", "no", "1994", "no", "7", "no"),
+    Copernicium("112", "Cn", "285", "173", "112", "112", "7", "12", "artificial", "yes", "no", "Unknown", "no", "no", "no", "no", "no", "no", "no", "no", "1996", "no", "7", "no"),
+    Nihonium("113", "Nh", "284", "171", "113", "113", "7", "13", "artificial", "yes", "no", "Unknown", "no", "no", "no", "no", "no", "no", "no", "no", "2004", "no", "7", "3"),
+    Flerovium("114", "Fl", "289", "175", "114", "114", "7", "14", "artificial", "yes", "no", "Unknown", "no", "no", "no", "no", "no", "no", "no", "no", "1999", "no", "7", "4"),  
+    Moscovium("115", "Mc", "288", "173", "115", "115", "7", "15", "artificial", "yes", "no", "Unknown", "no", "no", "no", "no", "no", "no", "no", "no", "2010", "no", "7", "5"),
+    Livermorium("116", "Lv", "292", "176", "116", "116", "7", "16", "artificial", "yes", "no", "Unknown", "no", "no", "no", "no", "no", "no", "no", "no", "2000", "no", "7", "6"),
+    Tennessine("117", "Ts", "295", "178", "117", "117", "7", "17", "artificial", "yes", "no", "Unknown", "no", "no", "no", "no", "no", "no", "no", "no", "2010", "no", "7", "7"),
+    Oganesson("118", "Og", "294", "176", "118", "118", "7", "18", "artificial", "yes", "no", "Unknown", "no", "no", "no", "no", "no", "no", "no", "no", "2006", "no", "7", "8");
     
     private int atomicNum;
     private String symbol;

@@ -41,7 +41,7 @@ public class Chemistry {
     //draw everything
     public class ChemPanel extends JPanel {
         ChemPanel() {
-            setPreferredSize(new Dimension(1600, 900));
+            setPreferredSize(new Dimension(Const.FRAME_WIDTH, Const.FRAME_HEIGHT));
             setFocusable(true);
             requestFocusInWindow();
         }

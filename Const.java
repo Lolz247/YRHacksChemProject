@@ -1,8 +1,10 @@
 import java.awt.*;
 
 public class Const {
-    public static final int X_SPACE = 50;
-    public static final int Y_SPACE = 80;
+    public static final int FRAME_WIDTH = 2000;
+    public static final int FRAME_HEIGHT = 1500;
+    public static final int X_SPACE = 300;
+    public static final int Y_SPACE = 100;
 
     public static final int ELEMENT_SPACE = 80;
     public static final int ELEMENT_SIZE = 60;
