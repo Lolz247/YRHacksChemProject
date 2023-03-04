@@ -6,6 +6,7 @@ public class Const {
 
     public static final int ELEMENT_SPACE = 80;
     public static final int ELEMENT_SIZE = 60;
+    public static final int ELEMENT_FONT_SIZE = 20;
 
     public static final Color PURPLE = new Color(140, 82, 255);
     public static final Color PINK = new Color(255, 112, 253);

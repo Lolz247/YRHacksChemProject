@@ -5,6 +5,7 @@ import java.util.*;
 
 public class PeriodicTable {
   
+  int fontSize = Const.ELEMENT_FONT_SIZE;
   boolean escpressed;
   final int circleSize = Const.ELEMENT_SIZE;
   final int elementSpace = Const.ELEMENT_SPACE;
@@ -39,7 +40,7 @@ public class PeriodicTable {
       int period = elements[i].getPeriod();
       g.setColor(Color.RED);
       switch(elements[i].getType()){
-        case "Akali Metal": g.setColor(orange); break;
+        case "Alkali Metal": g.setColor(orange); break;
         case "Alkaline Earth Metal": g.setColor(daniel); break;
         case "Noble Gas": g.setColor(purple); break;
         case "Metal": g.setColor(blue); break;
@@ -60,6 +61,10 @@ public class PeriodicTable {
         group = i-87+2;
       }
       g.fillOval(XSpace + (group-1)*elementSpace, YSpace + (period-1)*elementSpace, circleSize, circleSize);
+      g.setFont(FontLoader.getFont(fontSize));
+      g.setColor(Color.BLACK);
+      g.drawString(elements[i].getAtomicNum()+"", XSpace + (group-1)*elementSpace + circleSize/3, YSpace + (period-1)*elementSpace + circleSize/3);
+      g.drawString(elements[i].getSymbol(), XSpace + (group-1)*elementSpace + circleSize/3, YSpace + (period-1)*elementSpace + circleSize*3/4);
     }
   }
 //------------------------------------------------------------------------------
