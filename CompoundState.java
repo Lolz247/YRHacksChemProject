@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.image.*;
 import javax.imageio.*;
 
+// compound maker screen
+
 public class CompoundState extends State{
     StateMachine stateMachine;
     CompoundState(Keyboard keyboard, Mouse mouse, StateMachine stateMachine) {

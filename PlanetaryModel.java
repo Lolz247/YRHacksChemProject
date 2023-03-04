@@ -1,5 +1,7 @@
 import java.awt.*;
 
+// aka bohr-rutherford diagram
+
 public class PlanetaryModel {
     private int shells;
     private int[] shellConfig;
@@ -68,5 +70,9 @@ public class PlanetaryModel {
                 g.fillOval(elecX-(elecSize/2), elecY-(elecSize/2), elecSize, elecSize);
             }
         }
+    }
+
+    public void changeElement(Element e) {
+
     }
 }

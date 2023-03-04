@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.image.*;
 import javax.imageio.*;
 
+// menu screen
+
 public class MenuState extends State{
     StateMachine stateMachine;
     MenuState(Keyboard keyboard, Mouse mouse, StateMachine stateMachine) {

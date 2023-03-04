@@ -1,5 +1,7 @@
 import java.awt.*;
 
+// refer to class name (const)
+
 public class Const {
     public static final int FRAME_WIDTH = 1920;
     public static final int FRAME_HEIGHT = 1080;

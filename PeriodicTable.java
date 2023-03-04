@@ -4,8 +4,10 @@ import java.awt.event.*;
 import java.util.*;
 import java.lang.Math.*;
 
+// draws circles, element text, legend, e.t.c
+
 public class PeriodicTable {
-  Element current = Element.valueOf("Hydrogen");
+  Element current = Element.valueOf("Hydrogen"); // element for the variable named "current"
   ElementTile tile = new ElementTile(current, Const.FRAME_WIDTH*4/5, Const.FRAME_HEIGHT/8, 350);
   PlanetaryModel planetaryModel = new PlanetaryModel(current, Const.FRAME_WIDTH*4/5, Const.FRAME_HEIGHT*3/5, 300); 
   // Planetary Model: need to make button thing for each element that switches model (element rect already made here (line 27)(default is hydrogen))
@@ -123,12 +125,12 @@ public class PeriodicTable {
     int i = 0;
     for (Rectangle elementTile: this.tiles) {
       if (elementTile.contains(click)) {
-        current = Element.values()[i];
+          current = Element.values()[i];
         tile = new ElementTile(current, Const.FRAME_WIDTH*4/5, Const.FRAME_HEIGHT/8, 350);
         planetaryModel = new PlanetaryModel(current, Const.FRAME_WIDTH*4/5, Const.FRAME_HEIGHT*3/5, 300);
-        break;
+          break;
       }
       i++;
-    }
+  }
   }
 }

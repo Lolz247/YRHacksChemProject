@@ -5,6 +5,8 @@ import java.awt.image.*;
 import javax.imageio.*;
 import javax.swing.*;
 
+// credits screen
+
 public class CreditsState extends State{
     StateMachine stateMachine;
     Font textfont = new Font("Arial", 1, 40);
