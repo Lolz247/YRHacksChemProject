@@ -1,8 +1,10 @@
 import java.util.*;
 import java.io.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class CompoundCalculator {
+    //private NameKeyListener keyListener = new NameKeyListener();
     private Rectangle textBox;
     private int textBoxSize;
     private int fontSize;
@@ -28,11 +30,33 @@ public class CompoundCalculator {
         }
     }
 
-    public void type(Keyboard input){
-        while(input.hasNext() && typing){
-            text = text + input.next();
+    public void type(char key){
+        int keyCode = key;
+        if(keyCode != 8){
+            text+=key;
+        } else if(text.length() > 0) {
+            text = text.substring(0, text.length()-1);
         }
+        System.out.println("cock");
     }
+
+    // public class NameKeyListener implements KeyListener {
+    //     public void keyPressed(KeyEvent event) {
+    //         int key = event.getKeyCode();
+    //         String newChar = Character.toString((char)key);
+    //         if (typing){
+    //             String name = text;
+    //             if (name.length() <= 25 && key != 8){ //8 is backspace, 32 is space, no spaces in name to not mess up networking
+    //                 text = name + newChar;
+    //             }
+    //             else if (key == 8 && text.length() > 0){
+    //                 text = text.substring(0, (text.length() - 1));
+    //             }
+    //         }
+    //     }
+    //     public void keyReleased(KeyEvent event) {}
+    //     public void keyTyped(KeyEvent event) {}
+    // }
 
     public void draw(Graphics g){
         g.setColor(Color.BLACK);
