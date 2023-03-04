@@ -120,56 +120,56 @@ public enum Element {
     
     private int atomicNum;
     private String symbol;
-    private double mass;
-    private int neutronNum;
-    private int protonNum;
-    private int electronNum;
+    private String mass;
+    private String neutronNum;
+    private String protonNum;
+    private String electronNum;
     private int period;
     private int group;
     private String phase;
     private boolean radioactive;
     private boolean natural;
     private String type;
-    private double radius;
-    private double eNeg;
-    private double firstIE;
-    private double density;
-    private double melting;
-    private double boiling;
-    private int numIsotopes;
+    private String radius;
+    private String eNeg;
+    private String firstIE;
+    private String density;
+    private String melting;
+    private String boiling;
+    private String numIsotopes;
     private String discoverer;
-    private int year;
-    private double specHeat;
-    private int numShells;
-    private int numVal;
+    private String year;
+    private String specHeat;
+    private String numShells;
+    private String numVal;
  
-    Element(String atomicNum, String symbol, String mass, String neutronNum, String protonNum, String electronNum, String period, 
+    private Element(String atomicNum, String symbol, String mass, String neutronNum, String protonNum, String electronNum, String period, 
             String group, String phase, String radioactive, String natural, String type, String radius, String eNeg, String firstIE, String density, 
             String melting, String boiling, String numIsotopes, String discoverer, String year, String specHeat, String numShells, String numVal){
-        this.atomicNum = Integer.parseInt(atomicNum);
+        if(!atomicNum.equals("no")){this.atomicNum = Integer.parseInt(atomicNum);} else {this.atomicNum = -1;};
         this.symbol = symbol;
-        this.mass = Double.parseDouble(mass);
-        this.neutronNum = Integer.parseInt(neutronNum);
-        this.protonNum = Integer.parseInt(protonNum);
-        this.electronNum = Integer.parseInt(electronNum);
-        this.period = Integer.parseInt(period);
-        this.group = Integer.parseInt(group);
+        this.mass = mass;
+        this.neutronNum = neutronNum;
+        this.protonNum = protonNum;
+        this.electronNum = electronNum;
+        if(!period.equals("no")){this.period = Integer.parseInt(period);} else {this.period = -1;};
+        if(!group.equals("no")){this.group = Integer.parseInt(group);} else {this.group = -1;};
         this.phase = phase;
         this.radioactive = radioactive.equals("yes");
         this.natural = natural.equals("yes");
         this.type = type;
-        this.radius = Double.parseDouble(radius);
-        this.eNeg = Double.parseDouble(eNeg);
-        this.firstIE = Double.parseDouble(firstIE);
-        this.density = Double.parseDouble(density);
-        this.melting = Double.parseDouble(melting);
-        this.boiling = Double.parseDouble(boiling);
-        this.numIsotopes = Integer.parseInt(numIsotopes);
+        this.radius = radius;
+        this.eNeg = eNeg;
+        this.firstIE = firstIE;
+        this.density = density;
+        this.melting = melting;
+        this.boiling = boiling;
+        this.numIsotopes = numIsotopes;
         this.discoverer = discoverer;
-        this.year = Integer.parseInt(year);
-        this.specHeat = Double.parseDouble(specHeat);
-        this.numShells = Integer.parseInt(numShells);
-        this.numVal = Integer.parseInt(numVal);
+        this.year = year;
+        this.specHeat = specHeat;
+        this.numShells = numShells;
+        this.numVal = numVal;
     }
 
     public int getAtomicNum() {
@@ -178,16 +178,16 @@ public enum Element {
     public String getSymbol() {
         return symbol;
     }
-    public double getMass() {
+    public String getMass() {
         return mass;
     }
-    public int getNeutronNum() {
+    public String getNeutronNum() {
         return neutronNum;
     }
-    public int getProtonNum() {
+    public String getProtonNum() {
         return protonNum;
     }
-    public int getElectronNum() {
+    public String getElectronNum() {
         return electronNum;
     }
     public int getPeriod() {
@@ -208,40 +208,40 @@ public enum Element {
     public String getType() {
         return type;
     }
-    public double getRadius() {
+    public String getRadius() {
         return radius;
     }
-    public double getENeg() {
+    public String getENeg() {
         return eNeg;
     }
-    public double getFirstIE() {
+    public String getFirstIE() {
         return firstIE;
     }
-    public double getDensity() {
+    public String getDensity() {
         return density;
     }
-    public double getMelting() {
+    public String getMelting() {
         return melting;
     }
-    public double getBoiling() {
+    public String getBoiling() {
         return boiling;
     }
-    public int getNumIsotopes() {
+    public String getNumIsotopes() {
         return numIsotopes;
     }
     public String getDiscoverer() {
         return discoverer;
     }
-    public int getYear() {
+    public String getYear() {
         return year;
     }
-    public double getSpecHeat() {
+    public String getSpecHeat() {
         return specHeat;
     }
-    public int getNumShells() {
+    public String getNumShells() {
         return numShells;
     }
-    public int getNumVal() {
+    public String getNumVal() {
         return numVal;
     }
 }

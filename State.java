@@ -53,7 +53,7 @@ public abstract class State {
     public abstract void type(char key);
     // On mouse click
     public abstract void click(Mouse.Click click);
-    public void draw(Graphics g) {
+    public void draw(Graphics g){
         for (MenuButton button: this.buttons.values()) {
             button.draw(g);
         }
