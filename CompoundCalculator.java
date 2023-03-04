@@ -1,7 +1,4 @@
-import java.util.*;
-import java.io.*;
 import java.awt.*;
-import java.awt.event.*;
 
 public class CompoundCalculator {
     //private NameKeyListener keyListener = new NameKeyListener();

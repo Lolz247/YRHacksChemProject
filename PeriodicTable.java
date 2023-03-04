@@ -1,8 +1,5 @@
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.*;
-import java.lang.Math.*;
 
 // draws circles, element text, legend, e.t.c
 
