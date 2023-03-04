@@ -6,7 +6,8 @@ import java.lang.Math.*;
 
 public class PeriodicTable {
   
-  PlanetaryModel planetaryModel = new PlanetaryModel(Element.valueOf("Hydrogen"), Const.FRAME_WIDTH/15, Const.FRAME_HEIGHT*2/3, 400);
+  PlanetaryModel planetaryModel = new PlanetaryModel(Element.valueOf("Hydrogen"), Const.FRAME_WIDTH/15, Const.FRAME_HEIGHT*2/3, 400); 
+  // Planetary Model: need to make button thing for each element that switches model (element rect already made here (line 27)(default is hydrogen))
   int fontSize = Const.ELEMENT_FONT_SIZE;
   boolean escpressed;
   final int circleSize = Const.ELEMENT_SIZE;

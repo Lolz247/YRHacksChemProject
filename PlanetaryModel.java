@@ -13,7 +13,7 @@ public class PlanetaryModel {
     private int[] fillOrder;
     private boolean configurated;
 
-    PlanetaryModel(Element element, int x, int y, int size){
+    PlanetaryModel(Element element, int x, int y, int size){ // Planetary Model for element
         this.shells = Integer.parseInt(element.getNumShells());
         this.protonNum = Integer.parseInt(element.getProtonNum());
         this.neutronNum = Integer.parseInt(element.getNeutronNum());
