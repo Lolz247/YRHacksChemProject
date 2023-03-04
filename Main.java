@@ -88,8 +88,13 @@ public class Main {
           g.setColor(Color.GRAY);
           g.fillRect(300,300,1000,5);
           
-          for (int j = 0; j < 10; j++){//i hate daniel
-            g.fillOval(50, 80 * j + 30, CIRCLESIZE, CIRCLESIZE);
+          g.setColor(new Color(159, 43, 104));
+          for (int g1 = 0; g1 < 10; g1++){//i hate daniel
+            g.fillOval(50, 80 * g1 + 30, CIRCLESIZE, CIRCLESIZE);
+          }
+          g.setColor(Color.PINK);
+          for (int g2 = 0; g2 < 9; g2++) {
+            g.fillOval(50 + 80, 80 * g2 + 110, CIRCLESIZE,CIRCLESIZE);
           }
         }
     }    
