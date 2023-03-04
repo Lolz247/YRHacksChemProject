@@ -7,7 +7,7 @@ import java.lang.Math.*;
 // draws circles, element text, legend, e.t.c
 
 public class PeriodicTable {
-  Element current = Element.valueOf("Hydrogen");
+  Element current = Element.valueOf("Hydrogen"); // element for the variable named "current"
   ElementTile tile = new ElementTile(current, Const.FRAME_WIDTH*4/5, Const.FRAME_HEIGHT/8, 350);
   PlanetaryModel planetaryModel = new PlanetaryModel(current, Const.FRAME_WIDTH*13/16, Const.FRAME_HEIGHT*3/5, 300); 
   // Planetary Model: need to make button thing for each element that switches model (element rect already made here (line 27)(default is hydrogen))
@@ -16,6 +16,8 @@ public class PeriodicTable {
   final int elementSpace = Const.ELEMENT_SPACE;
   final int XSpace = Const.X_SPACE;
   final int YSpace = Const.Y_SPACE;
+  private int tableType = 0;
+  private int newType = 0;
 
   Color purple = Const.PURPLE;
   Color pink = Const.PINK; 
@@ -35,11 +37,15 @@ public class PeriodicTable {
 //------------------------------------------------------------------------------  
   public void draw(Graphics g) {
     // elements
+    if(newType != tableType){
+      tableType = newType;
+    }
     Element[] elements = Element.values();
     for (int i=0;i<elements.length;i++){
       int group = elements[i].getGroup();
       int period = elements[i].getPeriod();
       g.setColor(red);
+      boolean fConfig = false;
       switch(elements[i].getType()){
         case "Alkali Metal": g.setColor(orange); break;
         case "Alkaline Earth Metal": g.setColor(daniel); break;
@@ -56,14 +62,15 @@ public class PeriodicTable {
       if(i > 55 && i < 71){
         period+=3;
         group = i-55+2;
+        fConfig = true;
       }
       if(i > 87 && i < 103){
         period+=3;
         group = i-87+2;
+        fConfig = true;
       }
       g.fillOval(XSpace + (group-1)*elementSpace, YSpace + (period-1)*elementSpace, circleSize, circleSize);
       tiles.add(new Rectangle(XSpace + (group-1)*elementSpace, YSpace + (period-1)*elementSpace, elementSpace, elementSpace));
-      g.setFont(FontLoader.getFont(fontSize));
       g.setColor(Color.BLACK);
       // if (elements[i].getType().equals("Transition Metal")) {
       //   g.setColor(Color.WHITE);
@@ -75,9 +82,43 @@ public class PeriodicTable {
       int formattingAtomicNumX = (int)Math.pow(2,(3-Integer.toString(elements[i].getAtomicNum()).length()));
       int formattingAtomicNumY = 4;
       int formattingSymbolX = 4;
-      g.drawString(elements[i].getAtomicNum()+"", XSpace + (group-1)*elementSpace + circleSize/3 - adjustX + formattingAtomicNumX, YSpace + (period-1)*elementSpace + circleSize/3 + formattingAtomicNumY);
-      g.drawString(elements[i].getSymbol(), XSpace + (group-1)*elementSpace + circleSize/3 - adjustX2 + formattingSymbolX, YSpace + (period-1)*elementSpace + circleSize*3/4);
-    }
+      if(tableType == 0){
+        g.setFont(FontLoader.getFont(fontSize));
+        g.drawString(elements[i].getAtomicNum()+"", XSpace + (group-1)*elementSpace + circleSize/3 - adjustX + formattingAtomicNumX, YSpace + (period-1)*elementSpace + circleSize/3 + formattingAtomicNumY);
+        g.drawString(elements[i].getSymbol(), XSpace + (group-1)*elementSpace + circleSize/3 - adjustX2 + formattingSymbolX, YSpace + (period-1)*elementSpace + circleSize*3/4);
+      }else if(tableType == 1){
+        g.setFont(FontLoader.getFont(fontSize));
+        g.drawString(elements[i].getSymbol(), XSpace + (group-1)*elementSpace + circleSize/3 - adjustX2 + formattingSymbolX, YSpace + (period-1)*elementSpace + circleSize*3/4 - 8);
+        int chargeIndex = 0;
+        g.setFont(FontLoader.getFont(fontSize - 5));
+        for(String charge: elements[i].getCharges()){
+          g.drawString(charge, XSpace + (group-1)*elementSpace + circleSize/3 - adjustX2 + formattingSymbolX - 10 + chargeIndex * 30, YSpace + (period-1)*elementSpace + circleSize*3/4 - 23);
+          chargeIndex++;
+        }
+      }else if(tableType == 2){
+        g.setFont(FontLoader.getFont(fontSize + 2));
+        int energyLevel = period;
+        char subshell = 's';
+        int orbital = group;
+        if(group > 2 && group <= 12 && (!fConfig || group == 3)){
+          energyLevel--;
+          orbital = group - 2;
+          subshell = Const.SUBSHELLS.get(2);
+          if(group == 3){
+            energyLevel -= 3;
+          }
+        }else if(group > 12 && group <= 18 && !fConfig){
+          subshell = Const.SUBSHELLS.get(1);
+          orbital = group - 12;
+        }else if (fConfig){
+          subshell = 'f';
+          energyLevel = energyLevel - 5;
+          orbital = group - 3;
+        }
+        g.drawString((energyLevel + "" + subshell), XSpace + (group-1)*elementSpace + circleSize/3 - adjustX - 2, YSpace + (period-1)*elementSpace + circleSize/3 + 14);
+        g.setFont(FontLoader.getFont(fontSize - 4));
+        g.drawString("" + orbital, XSpace + (group-1)*elementSpace + circleSize/3 - adjustX + 25, YSpace + (period-1)*elementSpace + circleSize/3 + 6);
+      }
     
     g.setColor(orange);
     g.fillOval(XSpace + (elementSpace)*2 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*0, circleSize/3, circleSize/3);
@@ -87,7 +128,7 @@ public class PeriodicTable {
     g.fillOval(XSpace + (elementSpace)*2 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*2, circleSize/3, circleSize/3);
     g.setColor(blue);
     g.fillOval(XSpace + (elementSpace)*6 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*0, circleSize/3, circleSize/3);
-    g.setColor(red);
+    g.setColor(Color.RED);
     g.fillOval(XSpace + (elementSpace)*6 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*1, circleSize/3, circleSize/3);
     g.setColor(cyan);
     g.fillOval(XSpace + (elementSpace)*6 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*2, circleSize/3, circleSize/3);
@@ -126,8 +167,10 @@ public class PeriodicTable {
       tile.draw(current, g);
     }
   }
+  }
   public void switchElement(Mouse.Click click){
-    int i = 0;
+    try {
+      int i = 0;
     for (Rectangle elementTile: this.tiles) {
       if (elementTile.contains(click)) {
           current = Element.values()[i];
@@ -137,10 +180,15 @@ public class PeriodicTable {
       }
       i++;
     }
+    } catch (Exception e) {
+    }
   }
   public void flipTile(Mouse.Click click){
     if(tile.getRect().contains(click)){
       tile.flip();
     }
+  }
+  public void changeTableType(int newType){
+    this.newType = newType;
   }
 }

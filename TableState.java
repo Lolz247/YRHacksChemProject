@@ -103,7 +103,7 @@ public class TableState extends State{
             super.draw(g);
         }
         public boolean run() {
-            tableType = 0;
+            table.changeTableType(0);
             return true;
         }
     }
@@ -115,7 +115,7 @@ public class TableState extends State{
             super.draw(g);
         }
         public boolean run() {
-            tableType = 1;
+            table.changeTableType(1);
             return true;
         }
     }
@@ -127,7 +127,7 @@ public class TableState extends State{
             super.draw(g);
         }
         public boolean run() {
-            tableType = 2;
+            table.changeTableType(2);
             return true;
         }
     }
