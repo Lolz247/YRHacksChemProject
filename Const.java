@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.util.HashMap;
+
 
 // refer to class name (const)
 
@@ -26,5 +28,14 @@ public class Const {
     public static final Color BLUE = new Color(82, 113, 255);
     public static final Color BROWN = new Color(178, 140, 90);
     public static final Color RED = new Color(252, 78, 66);
+
+    public static final HashMap<Integer, Character> SUBSHELLS = new HashMap<Integer, Character>(){ // Group number, Shell letter
+        {
+            put(0, 's');
+            put(1, 'p');
+            put(2, 'd');
+        }
+    };
+
     private Const(){}
 }
