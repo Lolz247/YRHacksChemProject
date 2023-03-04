@@ -3,6 +3,7 @@ import java.awt.*;
 // compound maker screen
 
 public class CompoundState extends State{
+    Background bg1 = new Background("assets/ptable.png",0,0);
     StateMachine stateMachine;
     CompoundCalculator compCalc = new CompoundCalculator();
     CompoundState(Keyboard keyboard, Mouse mouse, StateMachine stateMachine) {
@@ -37,6 +38,7 @@ public class CompoundState extends State{
         compCalc.exitTextBox(click);
     }
     public void draw(Graphics g) {
+        bg1.draw(g);
         super.draw(g);
         compCalc.draw(g);
     }
