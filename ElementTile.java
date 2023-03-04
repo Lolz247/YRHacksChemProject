@@ -15,6 +15,8 @@ public class ElementTile {
     private int size;
     private Rectangle rect;
 
+    private boolean flip;
+
     Color purple = Const.PURPLE;
     Color pink = Const.PINK; 
     Color orange = Const.ORANGE;
@@ -74,6 +76,16 @@ public class ElementTile {
         }
     }
 
+    public boolean getFlip(){
+        return this.flip;
+    }
+    public void flip(){
+        this.flip = !flip;
+    }
+    public Rectangle getRect() {
+        return this.rect;
+    }
+
     public void draw(Graphics g){
         switch(type){
             case "Alkali Metal": g.setColor(orange); break;
@@ -120,6 +132,17 @@ public class ElementTile {
         }
 
         g.fillRect(x, y, size, size*5/4);
+        g.setFont(FontLoader.getFont(size/20));
         g.setColor(Color.BLACK);
+        g.setFont(FontLoader.getFont(size/12));
+        g.drawString(symbol, x+size/12, y+size/8);
+        g.setFont(FontLoader.getFont(size/16));
+        g.drawString("Mass: " + mass, x+size/12, y+size/4);
+        g.drawString("Radius: " + element.getRadius(), x+size/12, y+size*3/8);
+        g.drawString("Electronegativity: " + element.getENeg(), x+size/12, y+size/2);
+        g.drawString("Phase: " + element.getPhase(), x+size/12, y+size*5/8);
+        g.drawString("Density: " + element.getDensity(), x+size/12, y+size*3/4);
+        g.drawString("Melting Point: " + element.getMelting(), x+size/12, y+size*7/8);
+        g.drawString("Boiling Point: " + element.getBoiling(), x+size/12, y+size);
     }
 }

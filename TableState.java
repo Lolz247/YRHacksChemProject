@@ -42,6 +42,7 @@ public class TableState extends State{
             }
         }
         table.switchElement(click);
+        table.flipTile(click);
     }
     public void draw(Graphics g) {
         ptable.draw(g);

@@ -119,18 +119,27 @@ public class PeriodicTable {
     g.drawString("Unknown", XSpace + (elementSpace)*14 + 5 + circleSize/2, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*1 + circleSize/4);
     // planetry model
     planetaryModel.draw(g);
-    tile.draw(g);
+    if(!tile.getFlip()){
+      tile.draw(g);
+    } else {
+      tile.draw(current, g);
+    }
   }
   public void switchElement(Mouse.Click click){
     int i = 0;
     for (Rectangle elementTile: this.tiles) {
       if (elementTile.contains(click)) {
           current = Element.values()[i];
-        tile = new ElementTile(current, Const.FRAME_WIDTH*4/5, Const.FRAME_HEIGHT/8, 350);
-        planetaryModel = new PlanetaryModel(current, Const.FRAME_WIDTH*13/16, Const.FRAME_HEIGHT*3/5, 300);
+          tile = new ElementTile(current, Const.FRAME_WIDTH*4/5, Const.FRAME_HEIGHT/8, 350);
+          planetaryModel = new PlanetaryModel(current, Const.FRAME_WIDTH*13/16, Const.FRAME_HEIGHT*3/5, 300);
           break;
       }
       i++;
+    }
   }
+  public void flipTile(Mouse.Click click){
+    if(tile.getRect().contains(click)){
+      tile.flip();
+    }
   }
 }
