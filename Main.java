@@ -12,6 +12,7 @@ public class Main {
   
   boolean escpressed;
   final int CIRCLESIZE = 60;
+  Color PURPLE = new Color(159, 43, 104);
   
 //------------------------------------------------------------------------------
   Main(){
@@ -70,6 +71,7 @@ public class Main {
         public void mouseReleased(MouseEvent e){  // MUST be implemented even if not used!
         }
         public void mouseEntered(MouseEvent e){   // MUST be implemented even if not used!
+            
         }
         public void mouseExited(MouseEvent e){    // MUST be implemented even if not used!
         }
@@ -96,6 +98,8 @@ public class Main {
           for (int g2 = 0; g2 < 9; g2++) {
             g.fillOval(50 + 80, 80 * g2 + 110, CIRCLESIZE,CIRCLESIZE);
           }
+
+
         }
     }    
 //------------------------------------------------------------------------------
