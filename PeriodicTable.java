@@ -20,7 +20,7 @@ public class PeriodicTable {
   Color purple = Const.PURPLE;
   Color pink = Const.PINK; 
   Color orange = Const.ORANGE;
-  Color daniel = Const.DANIEL;
+  Color daniel = Const.DANIEL; // lighter orange (alkaline earth metals)
   Color lime = Const.LIME;
   Color cyan = Const.CYAN;
   Color blue = Const.BLUE;
