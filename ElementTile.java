@@ -109,8 +109,9 @@ public class ElementTile {
         g.setFont(FontLoader.getFont(size/4));
         g.drawString(symbol, x+size/12, y+size*2/3);
         g.drawString(atomicNum+"", x+size/12, y+size/5);
-        g.setFont(FontLoader.getFont(size/8));
+        g.setFont(FontLoader.getFont(size/10));
         g.drawString(name, x+size/12, y+size);
+        g.setFont(FontLoader.getFont(size/8));
         g.drawString(mass, x+size/12, y+size*9/8);
         for(int i=0;i<shells.length;i++){
             g.drawString(shells[i]+"", x+size*5/6, y+size/6 + size*i/10);

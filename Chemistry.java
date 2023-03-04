@@ -12,7 +12,7 @@ public class Chemistry {
     Mouse mouse;
 
     public Chemistry(){
-        window = new JFrame("Chemistry");
+        window = new JFrame("Chemistry Calc");
         chemPanel = new ChemPanel();
         keyboard = new Keyboard();
         mouse = new Mouse();

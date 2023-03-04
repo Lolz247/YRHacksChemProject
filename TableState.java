@@ -9,7 +9,7 @@ import javax.imageio.*;
 public class TableState extends State{
     StateMachine stateMachine;
     PeriodicTable table;
-    Background ptable = new Background("assets/ptable.png");
+    Background bg1 = new Background("assets/ptable.png");
     TableState(Keyboard keyboard, Mouse mouse, StateMachine stateMachine) {
         super(keyboard, mouse);
         this.stateMachine = stateMachine;
@@ -45,9 +45,9 @@ public class TableState extends State{
         table.flipTile(click);
     }
     public void draw(Graphics g) {
-        ptable.draw(g);
-        table.draw(g);
+        bg1.draw(g);
         super.draw(g);
+        table.draw(g);
     }
     private class BackButton extends MenuButton {
         BackButton(Mouse mouse) {
