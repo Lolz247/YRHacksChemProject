@@ -3,9 +3,13 @@ import java.io.*;
 import java.awt.*;
 import java.awt.image.*;
 import javax.imageio.*;
+import javax.swing.*;
 
 public class CreditsState extends State{
     StateMachine stateMachine;
+    Font textfont = new Font("Arial", 1, 40);
+    Background creds = new Background("assets/graph.png");
+    Background bg1 = new Background("assets/bg1.png");
     CreditsState(Keyboard keyboard, Mouse mouse, StateMachine stateMachine) {
         super(keyboard, mouse);
         this.stateMachine = stateMachine;
@@ -39,10 +43,14 @@ public class CreditsState extends State{
     }
     public void draw(Graphics g) {
         super.draw(g);
+        creds.draw(g);
         g.setColor(Color.PINK);
-        Font textfont = new Font("Arial", 1, 40);
         g.setFont(textfont);
-        g.drawString("Developers:", 500, 300);
+        g.drawString("Developers:", 900, 100);
+        g.drawString("Daniel Liu", 500, 300);
+        g.drawString("William Dai", 500, 400);
+        g.drawString("Ilya Kononov", 500, 500);
+        g.drawString("Kevin Hua", 500, 600);
     }
     private class BackButton extends MenuButton {
         BackButton(Mouse mouse) {

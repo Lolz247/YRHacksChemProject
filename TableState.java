@@ -7,6 +7,7 @@ import javax.imageio.*;
 public class TableState extends State{
     StateMachine stateMachine;
     PeriodicTable table;
+    Background ptable = new Background("assets/ptable.png");
     TableState(Keyboard keyboard, Mouse mouse, StateMachine stateMachine) {
         super(keyboard, mouse);
         this.stateMachine = stateMachine;
@@ -42,6 +43,7 @@ public class TableState extends State{
     }
     public void draw(Graphics g) {
         super.draw(g);
+        ptable.draw(g);
         table.draw(g);
     }
     private class BackButton extends MenuButton {
