@@ -90,7 +90,7 @@ public class Main {
           g.setColor(Color.GRAY);
           g.fillRect(300,300,1000,5);
           
-          g.setColor(new Color(159, 43, 104));
+          g.setColor(PURPLE);
           for (int g1 = 0; g1 < 10; g1++){//i hate daniel
             g.fillOval(50, 80 * g1 + 30, CIRCLESIZE, CIRCLESIZE);
           }
