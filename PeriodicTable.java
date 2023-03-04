@@ -63,8 +63,12 @@ public class PeriodicTable {
       g.fillOval(XSpace + (group-1)*elementSpace, YSpace + (period-1)*elementSpace, circleSize, circleSize);
       g.setFont(FontLoader.getFont(fontSize));
       g.setColor(Color.BLACK);
-      g.drawString(elements[i].getAtomicNum()+"", XSpace + (group-1)*elementSpace + circleSize/3, YSpace + (period-1)*elementSpace + circleSize/3);
-      g.drawString(elements[i].getSymbol(), XSpace + (group-1)*elementSpace + circleSize/3, YSpace + (period-1)*elementSpace + circleSize*3/4);
+      int adjustX = 0;
+      int adjustX2 = 0;
+      adjustX = ((elements[i].getAtomicNum()+"").length()-1)*fontSize/4;
+      adjustX2 = ((elements[i].getSymbol()+"").length()-1)*fontSize/3;
+      g.drawString(elements[i].getAtomicNum()+"", XSpace + (group-1)*elementSpace + circleSize/3 - adjustX, YSpace + (period-1)*elementSpace + circleSize/3);
+      g.drawString(elements[i].getSymbol(), XSpace + (group-1)*elementSpace + circleSize/3 - adjustX2, YSpace + (period-1)*elementSpace + circleSize*3/4);
     }
   }
 //------------------------------------------------------------------------------
