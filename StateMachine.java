@@ -19,8 +19,8 @@ public class StateMachine {
         this.states = new State[]{
             new MenuState(this.keyboard, this.mouse, this), 
             new TableState(this.keyboard, this.mouse, this), 
-            //new CompoundState(this.keyboard, this.mouse),
-            //new CreditsState(this.keyboard, this.mouse),
+            new CompoundState(this.keyboard, this.mouse, this),
+            new CreditsState(this.keyboard, this.mouse, this),
         };
 
         this.states[this.current].setup(new Object[]{});

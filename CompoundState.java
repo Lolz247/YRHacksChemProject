@@ -4,9 +4,9 @@ import java.awt.*;
 import java.awt.image.*;
 import javax.imageio.*;
 
-public class CreditsState extends State{
+public class CompoundState extends State{
     StateMachine stateMachine;
-    CreditsState(Keyboard keyboard, Mouse mouse, StateMachine stateMachine) {
+    CompoundState(Keyboard keyboard, Mouse mouse, StateMachine stateMachine) {
         super(keyboard, mouse);
         this.stateMachine = stateMachine;
     }
@@ -41,7 +41,7 @@ public class CreditsState extends State{
         g.setColor(Color.PINK);
         Font textfont = new Font("Arial", 1, 40);
         g.setFont(textfont);
-        g.drawString("Developers:", 500, 300);
+        g.drawString("COMPOUND!!!", 500, 300);
     }
     private class BackButton extends MenuButton {
         BackButton(Mouse mouse) {
