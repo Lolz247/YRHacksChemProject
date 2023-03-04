@@ -17,7 +17,6 @@ public class Chemistry {
         keyboard = new Keyboard();
         mouse = new Mouse();
         stateMachine = new StateMachine(keyboard, mouse);
-        System.out.println("we love chemistry!!!"); //i hate daniel 
         setup();
     } 
 

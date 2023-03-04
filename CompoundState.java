@@ -1,8 +1,4 @@
-import java.util.*;
-import java.io.*;
 import java.awt.*;
-import java.awt.image.*;
-import javax.imageio.*;
 
 // compound maker screen
 
@@ -29,9 +25,7 @@ public class CompoundState extends State{
         menuButton.setActive(true);
     }
     public void type(char key) {
-        /*if (this.buttons.get("name").isActive()) {
-            ((NameButton)this.buttons.get("name")).type(key);
-        }*/
+        compCalc.type(key);
     }
     public void click(Mouse.Click click) {
         for (MenuButton button: this.buttons.values()) {

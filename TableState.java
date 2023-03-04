@@ -1,8 +1,4 @@
-import java.util.*;
-import java.io.*;
 import java.awt.*;
-import java.awt.image.*;
-import javax.imageio.*;
 
 // p table screen
 
@@ -10,6 +6,8 @@ public class TableState extends State{
     StateMachine stateMachine;
     PeriodicTable table;
     Background bg1 = new Background("assets/ptable.png",0,0);
+    Color basec = new Color(40,40,40);
+    Color basec2 = new Color(75,75,75);
     private int tableType;
     TableState(Keyboard keyboard, Mouse mouse, StateMachine stateMachine) {
         super(keyboard, mouse);
@@ -24,8 +22,8 @@ public class TableState extends State{
         BackButton menuButton = new BackButton(this.mouse);
         menuButton.setBounds((int)30, 10, (int)100, (int)50);
         menuButton.setText("Main Menu");
-        menuButton.setColor(Color.BLACK);
-        menuButton.setHoverColor(Color.GRAY);
+        menuButton.setColor(basec);
+        menuButton.setHoverColor(basec2);
         menuButton.setTextColor(Color.WHITE);
         menuButton.setFontSize(15);
         this.buttons.put("menu", menuButton);
@@ -33,10 +31,10 @@ public class TableState extends State{
         menuButton.setActive(true);
 
         ElementButton elementButton = new ElementButton(this.mouse);
-        elementButton.setBounds((int)300, 100, (int)200, (int)100);
+        elementButton.setBounds((int)300, 225, (int)200, (int)100);
         elementButton.setText("Elements");
-        elementButton.setColor(Color.BLACK);
-        elementButton.setHoverColor(Color.GRAY);
+        elementButton.setColor(basec);
+        elementButton.setHoverColor(basec2);
         elementButton.setTextColor(Color.WHITE);
         elementButton.setFontSize(25);
         this.buttons.put("elements", elementButton);
@@ -44,10 +42,10 @@ public class TableState extends State{
 
 
         IonButton ionButton = new IonButton(this.mouse);
-        ionButton.setBounds((int)550, 100, (int)200, (int)100);
+        ionButton.setBounds((int)550, 225, (int)200, (int)100);
         ionButton.setText("Ions");
-        ionButton.setColor(Color.BLACK);
-        ionButton.setHoverColor(Color.GRAY);
+        ionButton.setColor(basec);
+        ionButton.setHoverColor(basec2);
         ionButton.setTextColor(Color.WHITE);
         ionButton.setFontSize(25);
         this.buttons.put("ions", ionButton);
@@ -55,10 +53,10 @@ public class TableState extends State{
 
 
         ConfigButton configButton = new ConfigButton(this.mouse);
-        configButton.setBounds((int)800, 100, (int)200, (int)100);
+        configButton.setBounds((int)800, 225, (int)200, (int)100);
         configButton.setText("Electron configuration");
-        configButton.setColor(Color.BLACK);
-        configButton.setHoverColor(Color.GRAY);
+        configButton.setColor(basec);
+        configButton.setHoverColor(basec2);
         configButton.setTextColor(Color.WHITE);
         configButton.setFontSize(15);
         this.buttons.put("config", configButton);

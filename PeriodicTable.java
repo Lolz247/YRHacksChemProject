@@ -1,8 +1,5 @@
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.*;
-import java.lang.Math.*;
 
 // draws circles, element text, legend, e.t.c
 
@@ -72,11 +69,9 @@ public class PeriodicTable {
       g.fillOval(XSpace + (group-1)*elementSpace, YSpace + (period-1)*elementSpace, circleSize, circleSize);
       tiles.add(new Rectangle(XSpace + (group-1)*elementSpace, YSpace + (period-1)*elementSpace, elementSpace, elementSpace));
       g.setColor(Color.BLACK);
-      // if (elements[i].getType().equals("Transition Metal")) {
-      //   g.setColor(Color.WHITE);
-      // }
       int adjustX = 0;
       int adjustX2 = 0;
+      int adjustX3 = 0;
       adjustX = ((elements[i].getAtomicNum()+"").length()-1)*fontSize/4;
       adjustX2 = ((elements[i].getSymbol()+"").length()-1)*fontSize/3;
       int formattingAtomicNumX = (int)Math.pow(2,(3-Integer.toString(elements[i].getAtomicNum()).length()));
@@ -92,7 +87,11 @@ public class PeriodicTable {
         int chargeIndex = 0;
         g.setFont(FontLoader.getFont(fontSize - 5));
         for(String charge: elements[i].getCharges()){
-          g.drawString(charge, XSpace + (group-1)*elementSpace + circleSize/3 - adjustX2 + formattingSymbolX - 10 + chargeIndex * 30, YSpace + (period-1)*elementSpace + circleSize*3/4 - 23);
+          if (elements[i].getSymbol().length() == 1) {
+            g.drawString(charge, XSpace + (group-1)*elementSpace + circleSize/3 - adjustX2 + formattingSymbolX - 15 + chargeIndex * 30, YSpace + (period-1)*elementSpace + circleSize*3/4 - 23);
+          } else { 
+            g.drawString(charge, XSpace + (group-1)*elementSpace + circleSize/3 - adjustX2 + formattingSymbolX - 10 + chargeIndex * 30, YSpace + (period-1)*elementSpace + circleSize*3/4 - 23);
+          }
           chargeIndex++;
         }
       }else if(tableType == 2){
@@ -100,7 +99,7 @@ public class PeriodicTable {
         int energyLevel = period;
         char subshell = 's';
         int orbital = group;
-        if(group > 2 && group <= 12 && (!fConfig || group == 3)){
+        if (group >= 3 && group <= 12 && (!fConfig || group == 3)){
           energyLevel--;
           orbital = group - 2;
           subshell = Const.SUBSHELLS.get(2);
@@ -115,11 +114,17 @@ public class PeriodicTable {
           energyLevel = energyLevel - 5;
           orbital = group - 3;
         }
-        g.drawString((energyLevel + "" + subshell), XSpace + (group-1)*elementSpace + circleSize/3 - adjustX - 2, YSpace + (period-1)*elementSpace + circleSize/3 + 14);
+        if (Integer.toString(energyLevel).length() + 1 + Integer.toString(orbital).length() == 3) {
+          adjustX3 = 6;
+        } else if (Integer.toString(energyLevel).length() + 1 + Integer.toString(orbital).length() == 4) {
+          adjustX3 = 11;
+        }
+        g.drawString((energyLevel + "" + subshell), XSpace + (group-1)*elementSpace + circleSize/3 - adjustX3 - 2, YSpace + (period-1)*elementSpace + circleSize/3 + 16);
         g.setFont(FontLoader.getFont(fontSize - 4));
-        g.drawString("" + orbital, XSpace + (group-1)*elementSpace + circleSize/3 - adjustX + 25, YSpace + (period-1)*elementSpace + circleSize/3 + 6);
+        g.drawString("" + orbital, XSpace + (group-1)*elementSpace + circleSize/3 - adjustX3 + 25, YSpace + (period-1)*elementSpace + circleSize/3 + 6);
       }
     
+    g.setFont(FontLoader.getFont(fontSize));
     g.setColor(orange);
     g.fillOval(XSpace + (elementSpace)*2 + 5, Const.FRAME_HEIGHT - 156 + (elementSpace/2)*0, circleSize/3, circleSize/3);
     g.setColor(daniel);
