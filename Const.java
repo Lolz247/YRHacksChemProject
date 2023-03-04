@@ -14,6 +14,9 @@ public class Const {
 
     public static final int[] ELECTRON_FILL_ORDER = {0, 1, 1, 2, 2, 3, 2, 3, 4, 3, 4, 5, 3, 4, 5, 6, 4, 5, 6};
 
+    public static final int TEXTBOX_SIZE = 400;
+    public static final int FONT_SIZE = 30;
+
     public static final Color PURPLE = new Color(140, 82, 255);
     public static final Color PINK = new Color(255, 112, 253);
     public static final Color ORANGE = new Color(255, 145, 77);

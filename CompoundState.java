@@ -8,6 +8,7 @@ import javax.imageio.*;
 
 public class CompoundState extends State{
     StateMachine stateMachine;
+    CompoundCalculator compCalc = new CompoundCalculator();
     CompoundState(Keyboard keyboard, Mouse mouse, StateMachine stateMachine) {
         super(keyboard, mouse);
         this.stateMachine = stateMachine;
@@ -38,13 +39,12 @@ public class CompoundState extends State{
                 break;
             }
         }
+        compCalc.enterTextBox(click);
+        compCalc.exitTextBox(click);
     }
     public void draw(Graphics g) {
         super.draw(g);
-        g.setColor(Color.PINK);
-        Font textfont = new Font("Arial", 1, 40);
-        g.setFont(textfont);
-        g.drawString("COMPOUND!!!", 500, 300);
+        compCalc.draw(g);
     }
     private class BackButton extends MenuButton {
         BackButton(Mouse mouse) {
