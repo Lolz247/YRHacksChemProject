@@ -13,6 +13,7 @@ public class ElementTile {
     private int x;
     private int y;
     private int size;
+    private Rectangle rect;
 
     Color purple = Const.PURPLE;
     Color pink = Const.PINK; 
@@ -36,6 +37,7 @@ public class ElementTile {
         this.x = x;
         this.y = y;
         this.size = size;
+        this.rect = new Rectangle(x, y, size, size*5/4);
         findShellConfig();
     }
     private void findShellConfig(){
@@ -51,6 +53,24 @@ public class ElementTile {
                 shells[fillOrder[i]] += subshell;
                 electrons -= subshell;
             }
+        }
+        if(this.atomicNum == 29){
+            shells[3]--;
+            shells[2]++;
+        } else if(this.atomicNum == 47){
+            shells[4]--;
+            shells[3]++;
+        } else if(this.atomicNum == 79){
+            shells[5]--;
+            shells[4]++;
+        } else if(this.atomicNum == 46){
+            shells = new int[]{2, 8, 18, 18};
+        } else if(this.atomicNum == 24){
+            shells[3]--;
+            shells[2]++;
+        } else if(this.atomicNum == 42){
+            shells[4]--;
+            shells[3]++;
         }
     }
 
@@ -80,5 +100,23 @@ public class ElementTile {
         for(int i=0;i<shells.length;i++){
             g.drawString(shells[i]+"", x+size*5/6, y+size/6 + size*i/10);
         }
+    }
+    public void draw(Element element, Graphics g){
+        switch(type){
+            case "Alkali Metal": g.setColor(orange); break;
+            case "Alkaline Earth Metal": g.setColor(daniel); break;
+            case "Noble Gas": g.setColor(purple); break;
+            case "Metal": g.setColor(blue); break;
+            case "Transition Metal": g.setColor(Color.RED); break;
+            case "Metalloid": g.setColor(cyan); break;
+            case "Nonmetal": g.setColor(lime); break;
+            case "Halogen": g.setColor(Color.GREEN); break;
+            case "Lanthanide": g.setColor(brown); break;
+            case "Actinide": g.setColor(pink); break;
+            case "Unknown": g.setColor(Color.GRAY); break;
+        }
+
+        g.fillRect(x, y, size, size*5/4);
+        g.setColor(Color.BLACK);
     }
 }

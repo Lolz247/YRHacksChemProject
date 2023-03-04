@@ -28,16 +28,36 @@ public class PlanetaryModel {
 
     private void findShellConfig(){
         int[] shellCount = new int[7];
-        for(int i=0;electrons > 0;i++){
-            shellCount[fillOrder[i]]++;
-            int subshell = shellCount[fillOrder[i]]*4 - 2;
-            if(electrons <= subshell){
-                shellConfig[fillOrder[i]] += electrons;
-                electrons = 0;
-            } else {
-                shellConfig[fillOrder[i]] += subshell;
-                electrons -= subshell;
+        if(protonNum != 46){
+            for(int i=0;electrons > 0;i++){
+                shellCount[fillOrder[i]]++;
+                int subshell = shellCount[fillOrder[i]]*4 - 2;
+                if(electrons <= subshell){
+                    shellConfig[fillOrder[i]] += electrons;
+                    electrons = 0;
+                } else {
+                    shellConfig[fillOrder[i]] += subshell;
+                    electrons -= subshell;
+                }
             }
+        }
+        if(this.protonNum == 29){
+            shellConfig[3]--;
+            shellConfig[2]++;
+        } else if(this.protonNum == 47){
+            shellConfig[4]--;
+            shellConfig[3]++;
+        } else if(this.protonNum == 79){
+            shellConfig[5]--;
+            shellConfig[4]++;
+        } else if(this.protonNum == 46){
+            shellConfig = new int[]{2, 8, 18, 18};
+        } else if(this.protonNum == 24){
+            shellConfig[3]--;
+            shellConfig[2]++;
+        } else if(this.protonNum == 42){
+            shellConfig[4]--;
+            shellConfig[3]++;
         }
     }
 
