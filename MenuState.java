@@ -8,7 +8,14 @@ import javax.imageio.*;
 
 public class MenuState extends State{
     StateMachine stateMachine;
-    Background chemtech = new Background("assets/chemtech.png", 770, 90);
+    Background chemtech = new Background("assets/chemtech.png", 775, 130);
+    Background menu = new Background("assets/menu.jpg", 0, 0);
+    Background dec1 = new Background("assets/1.png", 200, 170);
+    Background dec2 = new Background("assets/2.png", 450, 400);
+    Background dec3 = new Background("assets/3.png", 300, 700);
+    Background dec4 = new Background("assets/4.png", 1400, 150);
+    Background dec5 = new Background("assets/5.png", 1500, 750);
+    Background dec6 = new Background("assets/6.png", 1250, 450);
     MenuState(Keyboard keyboard, Mouse mouse, StateMachine stateMachine) {
         super(keyboard, mouse);
         this.stateMachine = stateMachine;
@@ -18,30 +25,30 @@ public class MenuState extends State{
         super.setup();
 
         TableButton tableButton = new TableButton(this.mouse);
-        tableButton.setBounds((int)200, 200, (int)400, (int)150);
+        tableButton.setBounds((int)760, 260, (int)400, (int)150);
         tableButton.setText("Periodic Table");
         tableButton.setColor(Color.BLACK);
         tableButton.setHoverColor(new Color(75,75,75)); //nicer gray than Color.GRAY
         tableButton.setTextColor(Color.WHITE);
-        tableButton.setFontSize(30);
+        tableButton.setFontSize(40);
         this.buttons.put("table", tableButton);
 
         CompoundButton compoundButton = new CompoundButton(this.mouse);
-        compoundButton.setBounds((int)200, (int)450, (int)400, (int)150);
+        compoundButton.setBounds((int)760, (int)510, (int)400, (int)150);
         compoundButton.setText("Compounds");
-        compoundButton.setColor(new Color(230,30,30)); //nicer red than Color.RED
+        compoundButton.setColor(new Color(252, 78, 66)); //nicer red than Color.RED
         compoundButton.setHoverColor(new Color(240,75,75));
         compoundButton.setTextColor(Color.BLACK);
-        compoundButton.setFontSize(30);
+        compoundButton.setFontSize(50);
         this.buttons.put("red", compoundButton);
 
         CreditButton creditButton = new CreditButton(this.mouse);
-        creditButton.setBounds((int)200, (int)700, (int)400, (int)150);
+        creditButton.setBounds((int)760, (int)760, (int)400, (int)150);
         creditButton.setText("Credits");
         creditButton.setColor(new Color(30,70,200)); //nicer blue than Color.BLUE
         creditButton.setHoverColor(new Color(75,120,235));
         creditButton.setTextColor(Color.BLACK);
-        creditButton.setFontSize(30);
+        creditButton.setFontSize(50);
         this.buttons.put("blue", creditButton);
 
         tableButton.setActive(true);
@@ -61,7 +68,14 @@ public class MenuState extends State{
         }
     }
     public void draw(Graphics g) {
+        menu.draw(g);
         chemtech.draw(g);
+        dec1.draw(g);
+        dec2.draw(g);
+        dec3.draw(g);
+        dec4.draw(g);
+        dec5.draw(g);
+        dec6.draw(g);
         super.draw(g);
     }
     private class TableButton extends MenuButton {

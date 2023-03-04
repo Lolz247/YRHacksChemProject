@@ -38,7 +38,7 @@ public class TableState extends State{
         elementButton.setColor(Color.BLACK);
         elementButton.setHoverColor(Color.GRAY);
         elementButton.setTextColor(Color.WHITE);
-        elementButton.setFontSize(15);
+        elementButton.setFontSize(25);
         this.buttons.put("elements", elementButton);
         elementButton.setActive(true);
 
@@ -49,7 +49,7 @@ public class TableState extends State{
         ionButton.setColor(Color.BLACK);
         ionButton.setHoverColor(Color.GRAY);
         ionButton.setTextColor(Color.WHITE);
-        ionButton.setFontSize(15);
+        ionButton.setFontSize(25);
         this.buttons.put("ions", ionButton);
         ionButton.setActive(true);
 

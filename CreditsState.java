@@ -9,7 +9,7 @@ import javax.swing.*;
 
 public class CreditsState extends State{
     StateMachine stateMachine;
-    Font textfont = new Font("Arial", 1, 40);
+    Font textfont = new Font("Calibri", 1, 80);
     Background creds = new Background("assets/ptable.png",0,0);
     Background bg1 = new Background("assets/bg1.png",0,0);
     CreditsState(Keyboard keyboard, Mouse mouse, StateMachine stateMachine) {
@@ -45,13 +45,14 @@ public class CreditsState extends State{
     }
     public void draw(Graphics g) {
         creds.draw(g);
-        g.setColor(Color.PINK);
+        g.setColor(Color.BLACK);
         g.setFont(textfont);
-        g.drawString("Developers:", 900, 100);
-        g.drawString("Daniel Liu", 500, 300);
-        g.drawString("William Dai", 500, 400);
-        g.drawString("Ilya Kononov", 500, 500);
-        g.drawString("Kevin Hua", 500, 600);
+        g.drawString("Developers:", 750, 150);
+        g.setColor(Color.PINK);
+        g.drawString("Daniel Liu", 100, 300);
+        g.drawString("William Dai", 100, 450);
+        g.drawString("Ilya Kononov", 100, 600);
+        g.drawString("Kevin Hua", 100, 750);
         super.draw(g);
     }
     private class BackButton extends MenuButton {
