@@ -22,5 +22,6 @@ public class Const {
     public static final Color CYAN = new Color(12, 192, 223);
     public static final Color BLUE = new Color(82, 113, 255);
     public static final Color BROWN = new Color(178, 140, 90);
+    public static final Color RED = new Color(252, 78, 66);
     private Const(){}
 }

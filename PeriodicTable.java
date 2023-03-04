@@ -25,6 +25,7 @@ public class PeriodicTable {
   Color cyan = Const.CYAN;
   Color blue = Const.BLUE;
   Color brown = Const.BROWN;
+  Color red = Const.RED;
 
   ArrayList<Rectangle> tiles = new ArrayList<>();
   
@@ -38,13 +39,13 @@ public class PeriodicTable {
     for (int i=0;i<elements.length;i++){
       int group = elements[i].getGroup();
       int period = elements[i].getPeriod();
-      g.setColor(Color.RED);
+      g.setColor(red);
       switch(elements[i].getType()){
         case "Alkali Metal": g.setColor(orange); break;
         case "Alkaline Earth Metal": g.setColor(daniel); break;
         case "Noble Gas": g.setColor(purple); break;
         case "Metal": g.setColor(blue); break;
-        case "Transition Metal": g.setColor(Color.RED); break;
+        case "Transition Metal": g.setColor(red); break;
         case "Metalloid": g.setColor(cyan); break;
         case "Nonmetal": g.setColor(lime); break;
         case "Halogen": g.setColor(Color.GREEN); break;
@@ -64,9 +65,9 @@ public class PeriodicTable {
       tiles.add(new Rectangle(XSpace + (group-1)*elementSpace, YSpace + (period-1)*elementSpace, elementSpace, elementSpace));
       g.setFont(FontLoader.getFont(fontSize));
       g.setColor(Color.BLACK);
-      if (elements[i].getType().equals("Transition Metal")) {
-        g.setColor(Color.WHITE);
-      }
+      // if (elements[i].getType().equals("Transition Metal")) {
+      //   g.setColor(Color.WHITE);
+      // }
       int adjustX = 0;
       int adjustX2 = 0;
       adjustX = ((elements[i].getAtomicNum()+"").length()-1)*fontSize/4;
