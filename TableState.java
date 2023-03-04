@@ -10,10 +10,12 @@ public class TableState extends State{
     StateMachine stateMachine;
     PeriodicTable table;
     Background bg1 = new Background("assets/ptable.png");
+    private int tableType;
     TableState(Keyboard keyboard, Mouse mouse, StateMachine stateMachine) {
         super(keyboard, mouse);
         this.stateMachine = stateMachine;
         table = new PeriodicTable();
+        tableType = 0;
     }
 
     public void setup(Object[] args) {
@@ -29,6 +31,38 @@ public class TableState extends State{
         this.buttons.put("menu", menuButton);
 
         menuButton.setActive(true);
+
+        ElementButton elementButton = new ElementButton(this.mouse);
+        elementButton.setBounds((int)300, 100, (int)200, (int)100);
+        elementButton.setText("Elements");
+        elementButton.setColor(Color.BLACK);
+        elementButton.setHoverColor(Color.GRAY);
+        elementButton.setTextColor(Color.WHITE);
+        elementButton.setFontSize(15);
+        this.buttons.put("elements", elementButton);
+        elementButton.setActive(true);
+
+
+        IonButton ionButton = new IonButton(this.mouse);
+        ionButton.setBounds((int)550, 100, (int)200, (int)100);
+        ionButton.setText("Ions");
+        ionButton.setColor(Color.BLACK);
+        ionButton.setHoverColor(Color.GRAY);
+        ionButton.setTextColor(Color.WHITE);
+        ionButton.setFontSize(15);
+        this.buttons.put("ions", ionButton);
+        ionButton.setActive(true);
+
+
+        ConfigButton configButton = new ConfigButton(this.mouse);
+        configButton.setBounds((int)800, 100, (int)200, (int)100);
+        configButton.setText("Electron configuration");
+        configButton.setColor(Color.BLACK);
+        configButton.setHoverColor(Color.GRAY);
+        configButton.setTextColor(Color.WHITE);
+        configButton.setFontSize(15);
+        this.buttons.put("config", configButton);
+        configButton.setActive(true);
     }
     public void type(char key) {
         /*if (this.buttons.get("name").isActive()) {
@@ -61,4 +95,41 @@ public class TableState extends State{
             return true;
         }
     }
+    private class ElementButton extends MenuButton {
+        ElementButton(Mouse mouse) {
+            super(mouse);
+        }
+        public void draw(Graphics g) {
+            super.draw(g);
+        }
+        public boolean run() {
+            tableType = 0;
+            return true;
+        }
+    }
+    private class IonButton extends MenuButton {
+        IonButton(Mouse mouse) {
+            super(mouse);
+        }
+        public void draw(Graphics g) {
+            super.draw(g);
+        }
+        public boolean run() {
+            tableType = 1;
+            return true;
+        }
+    }
+    private class ConfigButton extends MenuButton {
+        ConfigButton(Mouse mouse) {
+            super(mouse);
+        }
+        public void draw(Graphics g) {
+            super.draw(g);
+        }
+        public boolean run() {
+            tableType = 2;
+            return true;
+        }
+    }
+
 }

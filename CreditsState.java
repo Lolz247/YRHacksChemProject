@@ -45,7 +45,6 @@ public class CreditsState extends State{
     }
     public void draw(Graphics g) {
         creds.draw(g);
-        super.draw(g);
         g.setColor(Color.PINK);
         g.setFont(textfont);
         g.drawString("Developers:", 900, 100);
@@ -53,6 +52,7 @@ public class CreditsState extends State{
         g.drawString("William Dai", 500, 400);
         g.drawString("Ilya Kononov", 500, 500);
         g.drawString("Kevin Hua", 500, 600);
+        super.draw(g);
     }
     private class BackButton extends MenuButton {
         BackButton(Mouse mouse) {
