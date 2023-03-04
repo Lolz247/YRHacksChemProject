@@ -1,4 +1,5 @@
-// main java file
+// main java file that runs jpanel and jframe
+
 
 public class Main {
     public static void main(String[] args){
