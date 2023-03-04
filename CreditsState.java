@@ -44,8 +44,8 @@ public class CreditsState extends State{
         }
     }
     public void draw(Graphics g) {
-        super.draw(g);
         creds.draw(g);
+        super.draw(g);
         g.setColor(Color.PINK);
         g.setFont(textfont);
         g.drawString("Developers:", 900, 100);

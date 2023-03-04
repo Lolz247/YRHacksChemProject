@@ -44,9 +44,9 @@ public class TableState extends State{
         table.switchElement(click);
     }
     public void draw(Graphics g) {
-        super.draw(g);
         ptable.draw(g);
         table.draw(g);
+        super.draw(g);
     }
     private class BackButton extends MenuButton {
         BackButton(Mouse mouse) {
