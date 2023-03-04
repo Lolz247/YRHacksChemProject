@@ -6,6 +6,7 @@ import java.lang.Math.*;
 
 public class PeriodicTable {
   
+  PlanetaryModel planetaryModel = new PlanetaryModel(Element.valueOf("Zinc"), Const.FRAME_WIDTH/15, Const.FRAME_HEIGHT*2/3, 400);
   int fontSize = Const.ELEMENT_FONT_SIZE;
   boolean escpressed;
   final int circleSize = Const.ELEMENT_SIZE;
@@ -23,17 +24,12 @@ public class PeriodicTable {
   Color brown = Const.BROWN;
 
   ArrayList<JButton> buttons = new ArrayList<>();
+  ArrayList<Rectangle> tiles = new ArrayList<>();
   
 //------------------------------------------------------------------------------
   PeriodicTable(){  
   }
 //------------------------------------------------------------------------------  
-  //main game loop
-  public void run(){
-    // code (while loop)
-    while (true) {
-    }
-  }
   public void draw(Graphics g) {
     // elements
     Element[] elements = Element.values();
@@ -51,7 +47,7 @@ public class PeriodicTable {
         case "Nonmetal": g.setColor(lime); break;
         case "Halogen": g.setColor(Color.GREEN); break;
         case "Lanthanide": g.setColor(brown); break;
-        case "Actinide": g.setColor(purple); break;
+        case "Actinide": g.setColor(pink); break;
         case "Unknown": g.setColor(Color.GRAY); break;
       }
       if(i > 55 && i < 71){
@@ -63,6 +59,7 @@ public class PeriodicTable {
         group = i-87+2;
       }
       g.fillOval(XSpace + (group-1)*elementSpace, YSpace + (period-1)*elementSpace, circleSize, circleSize);
+      tiles.add(new Rectangle(XSpace + (group-1)*elementSpace, YSpace + (period-1)*elementSpace, elementSpace, elementSpace));
       g.setFont(FontLoader.getFont(fontSize));
       g.setColor(Color.BLACK);
       if (elements[i].getType().equals("Transition Metal")) {
@@ -107,7 +104,7 @@ public class PeriodicTable {
     g.fillOval(XSpace + (elementSpace)*7, YSpace + (elementSpace/2)*1, circleSize/3, circleSize/3);
     g.setColor(brown);
     g.fillOval(XSpace + (elementSpace)*7, YSpace + (elementSpace/2)*2, circleSize/3, circleSize/3);
-    g.setColor(purple);
+    g.setColor(pink);
     g.fillOval(XSpace + (elementSpace)*7, YSpace + (elementSpace/2)*3, circleSize/3, circleSize/3);
     g.setColor(Color.GRAY);
     g.fillOval(XSpace + (elementSpace)*7, YSpace + (elementSpace/2)*4, circleSize/3, circleSize/3);
@@ -118,6 +115,7 @@ public class PeriodicTable {
     g.drawString("Lanthanide", XSpace + (elementSpace)*7 + circleSize/2, YSpace + (elementSpace/2)*2 + circleSize/4);
     g.drawString("Actinide", XSpace + (elementSpace)*7 + circleSize/2, YSpace + (elementSpace/2)*3 + circleSize/4);
     g.drawString("Unknown", XSpace + (elementSpace)*7 + circleSize/2, YSpace + (elementSpace/2)*4 + circleSize/4);
+    // planetry model
+    planetaryModel.draw(g);
   }
-//------------------------------------------------------------------------------
 }
