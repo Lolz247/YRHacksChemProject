@@ -29,6 +29,11 @@ public class Main {
     mouseListener = new MyMouseListener();
     gamePanel.addMouseListener(mouseListener);
     
+    JButton testbtn = new JButton("test123(4)");
+    testbtn.setBackground(Color.PINK);
+    testbtn.setForeground(Color.GREEN);
+    gamePanel.add(testbtn);
+    
     gameWindow.setVisible(true);    
   }
 //------------------------------------------------------------------------------  
