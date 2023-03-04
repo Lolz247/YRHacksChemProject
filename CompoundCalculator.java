@@ -37,6 +37,44 @@ public class CompoundCalculator {
         }
     }
 
+    public String findCompound(String compound){
+        String alphabet = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+        try{
+            String[] elements = compound.split(" ");
+            int num1 = 1;
+            int num2 = 1;
+            if(!alphabet.contains(elements[0].charAt(elements[0].length()-1)+"")){
+                num1 = Integer.parseInt(elements[0].charAt(elements[0].length()-1)+"");
+                elements[0] = elements[0].substring(0, elements[0].length()-1);
+            }
+            if(!alphabet.contains(elements[1].charAt(elements[1].length()-1)+"")){
+                num2 = Integer.parseInt(elements[1].charAt(elements[1].length()-1)+"");
+                elements[1] = elements[1].substring(0, elements[1].length()-1);
+            }
+            Element el1 = Element.valueOf(elements[0]);
+            Element el2 = Element.valueOf(elements[1]);
+            int charge1 = 0;
+            int charge2 = 0;
+            if(el1.getCharges().length >= 1){
+                charge1 = Integer.parseInt(el1.getCharges()[0]);
+            } else {
+                return "Element/Compound does not exist."; 
+            }
+            if(el2.getCharges().length >= 1){
+                charge2 = Integer.parseInt(el2.getCharges()[0]);
+            } else {
+                return "Element/Compound does not exist.";
+            }
+
+            if(charge1 < 0 && charge2 < 0){
+
+            }
+        } catch (Exception e) {
+            return "Element/Compound does not exist.";
+        }
+        return null;
+    }
+
     public void draw(Graphics g){
         g.setColor(Color.BLACK);
         g.setFont(FontLoader.getFont(fontSize + 7));
