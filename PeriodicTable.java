@@ -4,11 +4,6 @@ import java.awt.event.*;
 import java.util.*;
 
 public class PeriodicTable {
-    
-  JFrame gameWindow;
-  GamePanel gamePanel;   
-  MyKeyListener keyListener; 
-  MyMouseListener mouseListener;
   
   boolean escpressed;
   final int CIRCLESIZE = 60;
@@ -17,87 +12,20 @@ public class PeriodicTable {
   ArrayList<JButton> buttons = new ArrayList<>();
   
 //------------------------------------------------------------------------------
-  PeriodicTable(){
-    gameWindow = new JFrame("I HATE DANIEL");
-
-    gameWindow.setSize(1600,900);
-    gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    gameWindow.setResizable(false);
-    
-    gamePanel = new GamePanel();
-    gamePanel.setLayout(null);
-    gameWindow.add(gamePanel); 
-    
-    keyListener = new MyKeyListener();
-    gamePanel.addKeyListener(keyListener);
-    
-    mouseListener = new MyMouseListener();
-    gamePanel.addMouseListener(mouseListener);
-    
-    JButton testbtn = new JButton("test123(4)");
-    testbtn.setBounds(50,100,95,30);
-    testbtn.setBackground(Color.PINK);
-    testbtn.setForeground(Color.GREEN);
-    gamePanel.add(testbtn);
-    buttons.add(testbtn);
-    
-    gameWindow.setVisible(true);    
+  PeriodicTable(){  
   }
 //------------------------------------------------------------------------------  
   //main game loop
   public void run(){
     // code (while loop)
     while (true) {
-        gameWindow.repaint();
-        try {Thread.sleep(16);} catch(Exception e){}
         for (Element element:Element.values()){ //what is this
 
         }
     }
   }
-//------------------------------------------------------------------------------  
-    //act upon key events
-    public class MyKeyListener implements KeyListener{
-        public void keyPressed(KeyEvent e){
-            //int key = e.getKeyCode();
-        }
-        public void keyReleased(KeyEvent e){ 
-            //int key = e.getKeyCode();
-        }   
-        public void keyTyped(KeyEvent e){
-        }           
-    }
-//------------------------------------------------------------------------------
-    // mouse inputs
-    public class MyMouseListener implements MouseListener{
-        public void mouseClicked(MouseEvent e){   // gets the mouse coordinates
-            int mouseX = e.getX();
-            int mouseY = e.getY();
-            System.out.println(mouseX + " " + mouseY);
-        }
-        public void mousePressed(MouseEvent e){   // MUST be implemented even if not used!
-        }
-        public void mouseReleased(MouseEvent e){  // MUST be implemented even if not used!
-        }
-        public void mouseEntered(MouseEvent e){   // MUST be implemented even if not used!
-            
-        }
-        public void mouseExited(MouseEvent e){    // MUST be implemented even if not used!
-        }
-    }
-//------------------------------------------------------------------------------
-    //draw everything
-    public class GamePanel extends JPanel{
-        GamePanel(){
-            setFocusable(true);
-            requestFocusInWindow();
-        }
-        
-        @Override
-        public void paintComponent(Graphics g){ 
-          super.paintComponent(g); //required
-
-          g.setColor(PURPLE); //Alkali Metals
+  public void draw(Graphics g){
+    g.setColor(PURPLE); //Alkali Metals
           for (int g1 = 0; g1 < 6; g1++){//i hate daniel
             g.fillOval(50, SPACING * g1 + 30 + SPACING, CIRCLESIZE, CIRCLESIZE);
           }
@@ -129,6 +57,5 @@ public class PeriodicTable {
             g.fillOval(SPACING * p1 + 50 + 3*SPACING, 30 + 9*SPACING, CIRCLESIZE, CIRCLESIZE);
           }
         }
-    }    
 //------------------------------------------------------------------------------
 }
